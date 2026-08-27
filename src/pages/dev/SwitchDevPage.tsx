@@ -2,10 +2,31 @@ import { useState } from 'react';
 
 import { DevBreadcrumb } from '@/pages/dev/_DevBreadcrumb';
 import { Button } from '@/shared/components/ui/button';
+import { CodePreview } from '@/shared/components/ui/code-block';
 import { Switch } from '@/shared/components/ui/switch';
 
 const rowLabelClass = 'text-body-1-sb text-foreground flex items-center';
 const cellClass = 'flex min-h-14 items-center justify-center rounded-lg bg-muted/40 p-2 border border-border/40';
+
+const switchInteractiveCode = `import { useState } from 'react';
+import { Switch } from '@/shared/components/ui/switch';
+
+export function SwitchExample() {
+  const [checked, setChecked] = useState(true);
+
+  return (
+    <div className="flex items-center gap-3">
+      <Switch
+        checked={checked}
+        onCheckedChange={setChecked}
+        iconMode="all" // Hiển thị icon Check/X
+      />
+      <span className="text-sm font-medium">
+        {checked ? 'Bật thông báo' : 'Tắt thông báo'}
+      </span>
+    </div>
+  );
+}`;
 
 export const SwitchDevPage = () => {
   const [checked, setChecked] = useState(true);
@@ -21,9 +42,47 @@ export const SwitchDevPage = () => {
         </p>
       </div>
 
+      {/* ── 1. Interactive ── */}
+      <CodePreview
+        title="1. Thử nghiệm tương tác (Interactive)"
+        description="Bật / tắt switch và chuyển đổi trạng thái vô hiệu hóa."
+        code={switchInteractiveCode}
+      >
+        <div className="space-y-4">
+          <div className="flex items-center gap-3 p-4 rounded-lg bg-background border border-border max-w-md">
+            <Switch
+              checked={checked}
+              disabled={disabled}
+              iconMode="all"
+              onCheckedChange={setChecked}
+            />
+            <p className="text-body-2-sb text-foreground">
+              Trạng thái: <span className="font-mono text-primary">{checked ? 'Bật (ON)' : 'Tắt (OFF)'}</span>
+            </p>
+          </div>
+
+          <div className="flex flex-wrap gap-2.5">
+            <Button size="small" variant="outline" onClick={() => setChecked(false)}>
+              Đặt: Tắt (OFF)
+            </Button>
+            <Button size="small" variant="outline" onClick={() => setChecked(true)}>
+              Đặt: Bật (ON)
+            </Button>
+            <Button
+              size="small"
+              variant={disabled ? 'default' : 'outline'}
+              onClick={() => setDisabled((prev) => !prev)}
+            >
+              Toggle Disabled ({String(disabled)})
+            </Button>
+          </div>
+        </div>
+      </CodePreview>
+
+      {/* ── 2. Design States ── */}
       <section className="space-y-4 rounded-xl border border-border bg-card p-6 shadow-xs">
         <div className="border-b border-border pb-3">
-          <h2 className="text-title-1 font-semibold text-foreground">1. Ma trận trạng thái (Design States)</h2>
+          <h2 className="text-title-1 font-semibold text-foreground">2. Ma trận trạng thái (Design States)</h2>
           <p className="text-body-2-rg text-muted-foreground mt-0.5">Trạng thái Default, Hover, Focus, Pressed và Disabled.</p>
         </div>
         <div className="w-full overflow-x-auto pt-2">
@@ -55,42 +114,6 @@ export const SwitchDevPage = () => {
             <div className={cellClass}><Switch data-ui-focus="true" /></div>
             <div className={cellClass}><Switch data-ui-pressed="true" /></div>
             <div className={cellClass}><Switch disabled /></div>
-          </div>
-        </div>
-      </section>
-
-      <section className="space-y-4 rounded-xl border border-border bg-card p-6 shadow-xs">
-        <div className="border-b border-border pb-3">
-          <h2 className="text-title-1 font-semibold text-foreground">2. Thử nghiệm tương tác (Interactive)</h2>
-          <p className="text-body-2-rg text-muted-foreground mt-0.5">Bật / tắt switch và chuyển đổi trạng thái vô hiệu hóa.</p>
-        </div>
-        <div className="space-y-4 pt-2">
-          <div className="flex items-center gap-3 p-4 rounded-lg bg-muted/20 border border-border max-w-md">
-            <Switch
-              checked={checked}
-              disabled={disabled}
-              iconMode="all"
-              onCheckedChange={setChecked}
-            />
-            <p className="text-body-2-sb text-foreground">
-              Trạng thái: <span className="font-mono text-primary">{checked ? 'Bật (ON)' : 'Tắt (OFF)'}</span>
-            </p>
-          </div>
-
-          <div className="flex flex-wrap gap-2.5">
-            <Button size="small" variant="outline" onClick={() => setChecked(false)}>
-              Đặt: Tắt (OFF)
-            </Button>
-            <Button size="small" variant="outline" onClick={() => setChecked(true)}>
-              Đặt: Bật (ON)
-            </Button>
-            <Button
-              size="small"
-              variant={disabled ? 'default' : 'outline'}
-              onClick={() => setDisabled((prev) => !prev)}
-            >
-              Toggle Disabled ({String(disabled)})
-            </Button>
           </div>
         </div>
       </section>

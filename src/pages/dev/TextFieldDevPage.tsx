@@ -1,6 +1,7 @@
 import { useState } from 'react';
 
 import { DevBreadcrumb } from '@/pages/dev/_DevBreadcrumb';
+import { CodePreview } from '@/shared/components/ui/code-block';
 import { Switch } from '@/shared/components/ui/switch';
 import { TextField } from '@/shared/components/ui/text-field';
 
@@ -114,11 +115,44 @@ export const TextFieldDevPage = () => {
         </p>
       </div>
 
-      <section className="space-y-4 rounded-xl border border-border bg-card p-6 shadow-xs">
-        <div className="border-b border-border pb-3">
-          <h2 className="text-title-1 font-semibold text-foreground">1. Thử nghiệm tương tác (Interactive Playground)</h2>
-          <p className="text-body-2-rg text-muted-foreground mt-0.5">Các trạng thái nhập liệu, gắn tag và khoảng ngày.</p>
-        </div>
+      {/* ── 1. Interactive Playground ── */}
+      <CodePreview
+        title="1. Thử nghiệm tương tác (Interactive Playground)"
+        description="Các trạng thái nhập liệu, gắn tag và khoảng ngày."
+        code={`import { TextField } from '@/shared/components/ui/text-field';
+
+// 1. Text field cơ bản kèm nhãn & chú thích
+<TextField
+  label="Họ và tên"
+  required
+  placeholder="Nhập họ và tên..."
+  supportingText="Tối đa 100 ký tự"
+/>
+
+// 2. Báo lỗi xác thực (Error state)
+<TextField
+  label="Email"
+  required
+  error
+  errorText="Email không đúng định dạng"
+  defaultValue="invalid-email"
+/>
+
+// 3. Gắn thẻ Tags
+<TextField
+  label="Kỹ năng"
+  tags={[{ id: '1', label: 'React', tone: 'blue' }]}
+  placeholder="Thêm kỹ năng..."
+/>
+
+// 4. Chọn khoảng ngày (Date Range variant)
+<TextField
+  variant="dateRange"
+  label="Thời gian thực hiện"
+  startPlaceholder="Từ ngày"
+  endPlaceholder="Đến ngày"
+/>`}
+      >
         <div className="grid max-w-xl gap-6">
           <TextField
             label="Label"
@@ -158,7 +192,7 @@ export const TextFieldDevPage = () => {
             endPlaceholder="End date"
           />
         </div>
-      </section>
+      </CodePreview>
 
       <section className="space-y-4">
         <h2 className="text-title-2 text-foreground">Single input</h2>

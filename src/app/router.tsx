@@ -50,11 +50,13 @@ if (SHOW_DEV_ROUTES) {
   const ChartDevPage = lazyNamed(() => import('@/pages/dev/ChartDevPage'), 'ChartDevPage');
   const CheckboxDevPage = lazyNamed(() => import('@/pages/dev/CheckboxDevPage'), 'CheckboxDevPage');
   const ChipDevPage = lazyNamed(() => import('@/pages/dev/ChipDevPage'), 'ChipDevPage');
+  const CodeBlockDevPage = lazyNamed(() => import('@/pages/dev/CodeBlockDevPage'), 'CodeBlockDevPage');
   const DatePickerDevPage = lazyNamed(
     () => import('@/pages/dev/DatePickerDevPage'),
     'DatePickerDevPage',
   );
   const DialogDevPage = lazyNamed(() => import('@/pages/dev/DialogDevPage'), 'DialogDevPage');
+  const DrawerDevPage = lazyNamed(() => import('@/pages/dev/DrawerDevPage'), 'DrawerDevPage');
   const DocumentViewerDevPage = lazyNamed(
     () => import('@/pages/dev/DocumentViewerDevPage'),
     'DocumentViewerDevPage',
@@ -113,8 +115,10 @@ if (SHOW_DEV_ROUTES) {
     { path: 'dev/chart', element: <Lazy><ChartDevPage /></Lazy> },
     { path: 'dev/checkbox', element: <Lazy><CheckboxDevPage /></Lazy> },
     { path: 'dev/chip', element: <Lazy><ChipDevPage /></Lazy> },
+    { path: 'dev/code-block', element: <Lazy><CodeBlockDevPage /></Lazy> },
     { path: 'dev/date-picker', element: <Lazy><DatePickerDevPage /></Lazy> },
     { path: 'dev/dialog', element: <Lazy><DialogDevPage /></Lazy> },
+    { path: 'dev/drawer', element: <Lazy><DrawerDevPage /></Lazy> },
     { path: 'dev/document-viewer', element: <Lazy><DocumentViewerDevPage /></Lazy> },
     { path: 'dev/dropdown-menu', element: <Lazy><DropdownMenuDevPage /></Lazy> },
     { path: 'dev/empty-state', element: <Lazy><EmptyStateDevPage /></Lazy> },

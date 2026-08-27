@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { toast } from 'sonner';
 
 import { DevBreadcrumb } from '@/pages/dev/_DevBreadcrumb';
+import { CodeBlock, CodePreview } from '@/shared/components/ui/code-block';
 import {
   DatePicker,
   DatePickerPanel,
@@ -19,6 +20,47 @@ const demoDualRange: DateRangeValue = {
   to: new Date(2024, 7, 5),
 };
 
+const singleDateCode = `import { useState } from 'react';
+import { DatePicker } from '@/shared/components/ui/date-picker';
+
+export function SingleDateExample() {
+  const [value, setValue] = useState<Date | null>(new Date());
+
+  return (
+    <DatePicker
+      label="Ngày áp dụng"
+      required
+      supportingText="Định dạng: dd/mm/yyyy"
+      placeholder="dd/mm/yyyy"
+      value={value}
+      onValueChange={setValue}
+    />
+  );
+}`;
+
+const dateRangeCode = `import { useState } from 'react';
+import { DateRangePicker, type DateRangeValue } from '@/shared/components/ui/date-picker';
+import { toast } from 'sonner';
+
+export function DateRangeExample() {
+  const [range, setRange] = useState<DateRangeValue>({ from: null, to: null });
+
+  return (
+    <DateRangePicker
+      label="Khoảng thời gian hiệu lực"
+      required
+      needConfirm // Yêu cầu bấm nút Xác nhận
+      clearable
+      supportingText="Chọn khoảng ngày rồi nhấn Xác nhận"
+      value={range}
+      onValueChange={setRange}
+      onConfirm={(r) => {
+        toast.success('Đã xác nhận khoảng ngày');
+      }}
+    />
+  );
+}`;
+
 export const DatePickerDevPage = () => {
   const [value, setValue] = useState<Date | null>(new Date(2024, 6, 14));
   const [range, setRange] = useState<DateRangeValue>({ from: null, to: null });
@@ -34,13 +76,13 @@ export const DatePickerDevPage = () => {
         </p>
       </div>
 
-      {/* ── Single date ── */}
-      <section className="space-y-4 rounded-xl border border-border bg-card p-6 shadow-xs">
-        <div className="border-b border-border pb-3">
-          <h2 className="text-title-1 font-semibold text-foreground">1. Chọn ngày đơn (Single Date)</h2>
-          <p className="text-body-2-rg text-muted-foreground mt-0.5">Chọn một mốc thời gian cụ thể.</p>
-        </div>
-        <div className="max-w-md pt-2">
+      {/* ── 1. Single date ── */}
+      <CodePreview
+        title="1. Chọn ngày đơn (Single Date)"
+        description="Chọn một mốc thời gian cụ thể."
+        code={singleDateCode}
+      >
+        <div className="max-w-md space-y-3">
           <DatePicker
             label="Ngày áp dụng"
             required
@@ -49,24 +91,21 @@ export const DatePickerDevPage = () => {
             value={value}
             onValueChange={setValue}
           />
+          {value && (
+            <p className="text-body-2-sb text-foreground">
+              Đã chọn: <span className="font-mono text-primary">{value.toLocaleDateString('vi-VN')}</span>
+            </p>
+          )}
         </div>
-        {value && (
-          <p className="text-body-2-sb text-foreground">
-            Đã chọn: <span className="font-mono text-primary">{value.toLocaleDateString('vi-VN')}</span>
-          </p>
-        )}
-      </section>
+      </CodePreview>
 
-      {/* ── Date range with needConfirm ── */}
-      <section className="space-y-4 rounded-xl border border-border bg-card p-6 shadow-xs">
-        <div className="border-b border-border pb-3">
-          <h2 className="text-title-1 font-semibold text-foreground">2. Chọn khoảng ngày có nút Xác nhận (needConfirm)</h2>
-          <p className="text-body-2-rg text-muted-foreground mt-0.5">
-            Cho phép chọn khoảng ngày và chỉ áp dụng khi người dùng nhấn nút Xác nhận.
-          </p>
-        </div>
-
-        <div className="max-w-xl pt-2">
+      {/* ── 2. Date range with needConfirm ── */}
+      <CodePreview
+        title="2. Chọn khoảng ngày có nút Xác nhận (needConfirm)"
+        description="Cho phép chọn khoảng ngày và chỉ áp dụng khi người dùng nhấn nút Xác nhận."
+        code={dateRangeCode}
+      >
+        <div className="max-w-xl space-y-3">
           <DateRangePicker
             label="Khoảng thời gian hiệu lực"
             required
@@ -81,18 +120,17 @@ export const DatePickerDevPage = () => {
               toast.success(`Đã chọn: ${fromStr} → ${toStr}`);
             }}
           />
+          {(confirmRange.from || confirmRange.to) && (
+            <p className="text-body-2-sb text-foreground">
+              {confirmRange.from && <span>Từ: <span className="font-mono text-primary">{confirmRange.from.toLocaleDateString('vi-VN')}</span></span>}
+              {confirmRange.from && confirmRange.to && <span className="mx-2 text-muted-foreground">→</span>}
+              {confirmRange.to && <span>Đến: <span className="font-mono text-primary">{confirmRange.to.toLocaleDateString('vi-VN')}</span></span>}
+            </p>
+          )}
         </div>
+      </CodePreview>
 
-        {(confirmRange.from || confirmRange.to) && (
-          <p className="text-body-2-sb text-foreground">
-            {confirmRange.from && <span>Từ: <span className="font-mono text-primary">{confirmRange.from.toLocaleDateString('vi-VN')}</span></span>}
-            {confirmRange.from && confirmRange.to && <span className="mx-2 text-muted-foreground">→</span>}
-            {confirmRange.to && <span>Đến: <span className="font-mono text-primary">{confirmRange.to.toLocaleDateString('vi-VN')}</span></span>}
-          </p>
-        )}
-      </section>
-
-      {/* ── Date range standard ── */}
+      {/* ── 3. Date range standard ── */}
       <section className="space-y-4 rounded-xl border border-border bg-card p-6 shadow-xs">
         <div className="border-b border-border pb-3">
           <h2 className="text-title-1 font-semibold text-foreground">3. Chọn khoảng ngày tự động đóng (Standard Range)</h2>
@@ -116,7 +154,7 @@ export const DatePickerDevPage = () => {
         )}
       </section>
 
-      {/* ── States ── */}
+      {/* ── 4. States ── */}
       <section className="space-y-4 rounded-xl border border-border bg-card p-6 shadow-xs">
         <div className="border-b border-border pb-3">
           <h2 className="text-title-1 font-semibold text-foreground">4. Các trạng thái (States)</h2>
@@ -134,7 +172,7 @@ export const DatePickerDevPage = () => {
         </div>
       </section>
 
-      {/* ── Panel gallery ── */}
+      {/* ── 5. Panel gallery ── */}
       <section className="space-y-4 rounded-xl border border-border bg-card p-6 shadow-xs">
         <div className="border-b border-border pb-3">
           <h2 className="text-title-1 font-semibold text-foreground">5. Thư viện Panel hiển thị</h2>

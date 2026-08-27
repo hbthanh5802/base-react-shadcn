@@ -1,7 +1,30 @@
 import { useState } from 'react';
 
 import { DevBreadcrumb } from '@/pages/dev/_DevBreadcrumb';
+import { CodePreview } from '@/shared/components/ui/code-block';
 import { Textarea } from '@/shared/components/ui/textarea';
+
+const textareaCode = `import { useState } from 'react';
+import { Textarea } from '@/shared/components/ui/textarea';
+
+export function TextareaExample() {
+  const [value, setValue] = useState('');
+
+  return (
+    <div className="space-y-2 max-w-xl">
+      <Textarea
+        rows={4}
+        value={value}
+        placeholder="Nhập nội dung ghi chú..."
+        onChange={(e) => setValue(e.target.value)}
+      />
+      <div className="flex justify-between items-center text-xs text-muted-foreground">
+        <span>Tối đa: 500 ký tự</span>
+        <span className="font-mono font-medium text-foreground">Số ký tự: {value.length}</span>
+      </div>
+    </div>
+  );
+}`;
 
 export const TextareaDevPage = () => {
   const [value, setValue] = useState('');
@@ -16,12 +39,12 @@ export const TextareaDevPage = () => {
         </p>
       </div>
 
-      <section className="space-y-4 rounded-xl border border-border bg-card p-6 shadow-xs">
-        <div className="border-b border-border pb-3">
-          <h2 className="text-title-1 font-semibold text-foreground">1. Nhập văn bản có đếm ký tự</h2>
-          <p className="text-body-2-rg text-muted-foreground mt-0.5">Tự động bắt sự kiện gõ phím và tính toán độ dài văn bản.</p>
-        </div>
-        <div className="space-y-3 pt-2 max-w-xl">
+      <CodePreview
+        title="1. Nhập văn bản có đếm ký tự"
+        description="Tự động bắt sự kiện gõ phím và tính toán độ dài văn bản."
+        code={textareaCode}
+      >
+        <div className="space-y-3 max-w-xl">
           <Textarea
             aria-label="textarea-playground"
             rows={4}
@@ -34,7 +57,7 @@ export const TextareaDevPage = () => {
             <span className="font-mono font-medium text-foreground">Số ký tự: {value.length}</span>
           </div>
         </div>
-      </section>
+      </CodePreview>
     </div>
   );
 };

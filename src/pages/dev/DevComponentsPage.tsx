@@ -148,6 +148,11 @@ export const DevComponentsPage = () => {
             <p className="text-body-2-rg text-muted-foreground mt-1">Hộp thoại xác nhận, popup biểu mẫu và cảnh báo.</p>
           </Link>
 
+          <Link to="/dev/drawer" className={cardClass}>
+            <h3 className="text-title-2 font-semibold text-foreground group-hover:text-primary transition-colors">Drawer (Slide-over)</h3>
+            <p className="text-body-2-rg text-muted-foreground mt-1">Ngăn kéo trượt từ 4 hướng (Phải, Trái, Dưới, Trên) cho bộ lọc và chi tiết.</p>
+          </Link>
+
           <Link to="/dev/card" className={cardClass}>
             <h3 className="text-title-2 font-semibold text-foreground group-hover:text-primary transition-colors">Card</h3>
             <p className="text-body-2-rg text-muted-foreground mt-1">Khung chứa nội dung thông tin với nhiều biến thể đổ bóng.</p>
@@ -206,6 +211,11 @@ export const DevComponentsPage = () => {
           <Link to="/dev/infinite-scroll" className={cardClass}>
             <h3 className="text-title-2 font-semibold text-foreground group-hover:text-primary transition-colors">Infinite Scroll</h3>
             <p className="text-body-2-rg text-muted-foreground mt-1">Tự động tải thêm dữ liệu khi cuộn đến cuối danh sách.</p>
+          </Link>
+
+          <Link to="/dev/code-block" className={cardClass}>
+            <h3 className="text-title-2 font-semibold text-foreground group-hover:text-primary transition-colors">Code Block & Preview</h3>
+            <p className="text-body-2-rg text-muted-foreground mt-1">Hiển thị mã nguồn, highlight cú pháp và nút sao chép 1 chạm.</p>
           </Link>
         </div>
       </section>

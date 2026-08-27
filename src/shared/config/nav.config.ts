@@ -55,6 +55,7 @@ export const NAV_GROUPS: NavGroup[] = [
     label: 'HIỂN THỊ DỮ LIỆU & FEEDBACK',
     items: [
       { key: 'dev-dialog', to: '/dev/dialog', label: 'Hộp thoại (Dialog & Modal)' },
+      { key: 'dev-drawer', to: '/dev/drawer', label: 'Ngăn kéo trượt (Drawer & Sheet)' },
       { key: 'dev-card', to: '/dev/card', label: 'Thẻ (Card)' },
       { key: 'dev-notification', to: '/dev/notification', label: 'Notification / Toast' },
       { key: 'dev-tooltip', to: '/dev/tooltip', label: 'Tooltip' },
@@ -66,6 +67,7 @@ export const NAV_GROUPS: NavGroup[] = [
       { key: 'dev-image', to: '/dev/image', label: 'Image' },
       { key: 'dev-icon', to: '/dev/icon', label: 'Icons (Iconsax + Lucide)' },
       { key: 'dev-infinite', to: '/dev/infinite-scroll', label: 'Infinite Scroll' },
+      { key: 'dev-code-block', to: '/dev/code-block', label: 'Code Block & Preview' },
     ],
   },
   {

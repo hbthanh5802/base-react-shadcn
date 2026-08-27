@@ -17,11 +17,8 @@ const TooltipBody = React.forwardRef<HTMLDivElement, TooltipBodyProps>(
     <div
       ref={ref}
       className={cn(
-        'rounded-lg text-body-2-rg font-medium shadow-md',
-        size === 'sm' ? 'px-2.5 py-1.5' : 'px-4 py-2.5',
-        theme === 'dark'
-          ? 'bg-gray-900 text-neutral-0'
-          : 'border border-border bg-background text-foreground',
+        'text-[13px] font-medium leading-snug',
+        theme === 'dark' ? 'text-neutral-50' : 'text-foreground',
         className,
       )}
       {...props}
@@ -32,7 +29,13 @@ const TooltipBody = React.forwardRef<HTMLDivElement, TooltipBodyProps>(
 );
 TooltipBody.displayName = 'TooltipBody';
 
-const TooltipProvider = TooltipPrimitive.Provider;
+function TooltipProvider({
+  delayDuration = 100,
+  ...props
+}: React.ComponentPropsWithoutRef<typeof TooltipPrimitive.Provider>) {
+  return <TooltipPrimitive.Provider delayDuration={delayDuration} {...props} />;
+}
+
 const Tooltip = TooltipPrimitive.Root;
 const TooltipTrigger = TooltipPrimitive.Trigger;
 
@@ -44,11 +47,17 @@ const TooltipContent = React.forwardRef<
     <TooltipPrimitive.Content
       ref={ref}
       sideOffset={sideOffset}
-      className={cn('z-50 border-none bg-transparent p-0 shadow-none outline-none', className)}
+      className={cn(
+        'z-50 max-w-xs select-none overflow-hidden rounded-lg bg-neutral-900 px-3.5 py-1.5 text-[13px] font-medium leading-snug text-neutral-50 shadow-md duration-150',
+        'border border-neutral-800/80 dark:bg-neutral-800 dark:border-neutral-700/80 dark:text-neutral-100',
+        'animate-in fade-in-0 zoom-in-95 data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-95',
+        'data-[side=bottom]:slide-in-from-top-1.5 data-[side=top]:slide-in-from-bottom-1.5 data-[side=left]:slide-in-from-right-1.5 data-[side=right]:slide-in-from-left-1.5',
+        className,
+      )}
       {...props}
     >
       {children}
-      <TooltipPrimitive.Arrow className="fill-gray-900" width={10} height={5} />
+      <TooltipPrimitive.Arrow className="fill-neutral-900 dark:fill-neutral-800" width={10} height={5} />
     </TooltipPrimitive.Content>
   </TooltipPrimitive.Portal>
 ));
@@ -61,61 +70,28 @@ interface TooltipBubbleContentProps extends React.HTMLAttributes<HTMLDivElement>
   items: string[];
 }
 
-const sideArrowClass: Record<TooltipBubbleSide, string> = {
-  top: 'before:-bottom-2 before:left-1/2 before:-translate-x-1/2 before:border-x-8 before:border-t-8 before:border-x-transparent before:border-t-gray-900',
-  right:
-    'before:-left-2 before:top-1/2 before:-translate-y-1/2 before:border-y-8 before:border-r-8 before:border-y-transparent before:border-r-gray-900',
-  bottom:
-    'before:-top-2 before:left-1/2 before:-translate-x-1/2 before:border-x-8 before:border-b-8 before:border-x-transparent before:border-b-gray-900',
-  left: 'before:-right-2 before:top-1/2 before:-translate-y-1/2 before:border-y-8 before:border-l-8 before:border-y-transparent before:border-l-gray-900',
-};
-
-const alignOffsetClass: Record<TooltipBubbleSide, Record<TooltipBubbleAlign, string>> = {
-  top: {
-    start: 'before:left-5 before:translate-x-0',
-    center: '',
-    end: 'before:left-auto before:right-5 before:translate-x-0',
-  },
-  right: {
-    start: 'before:top-5 before:translate-y-0',
-    center: '',
-    end: 'before:top-auto before:bottom-5 before:translate-y-0',
-  },
-  bottom: {
-    start: 'before:left-5 before:translate-x-0',
-    center: '',
-    end: 'before:left-auto before:right-5 before:translate-x-0',
-  },
-  left: {
-    start: 'before:top-5 before:translate-y-0',
-    center: '',
-    end: 'before:top-auto before:bottom-5 before:translate-y-0',
-  },
-};
-
 const TooltipBubbleContent = React.forwardRef<HTMLDivElement, TooltipBubbleContentProps>(
-  ({ className, side = 'top', align = 'center', label, items, ...props }, ref) => (
+  ({ className, label, items, ...props }, ref) => (
     <div
       ref={ref}
       className={cn(
-        'relative w-[124px] rounded-md bg-gray-900 px-4 py-3 text-neutral-0 shadow-md',
-        'before:absolute before:h-0 before:w-0',
-        sideArrowClass[side],
-        alignOffsetClass[side][align],
+        'w-[150px] p-0.5 text-neutral-50',
         className,
       )}
       {...props}
     >
-      <div className="mb-2 flex items-center gap-2">
-        <span className="h-3 w-3 rounded-[2px] bg-primary-600" />
-        <span className="text-title-3-sb">{label}</span>
+      <div className="mb-2 flex items-center gap-2 border-b border-white/10 pb-1.5">
+        <span className="h-2.5 w-2.5 rounded-[2px] bg-primary" />
+        <span className="text-[13px] font-semibold">{label}</span>
       </div>
-      <ul className="space-y-1">
+      <ul className="space-y-1.5">
         {items.map((item) => (
-          <li key={item} className="flex items-center gap-2 text-title-3-sb leading-none">
-            <span className="h-1 w-1 rounded-full bg-neutral-0" />
-            <span>{item}</span>
-            <CloseCircle size={14} variant="Bold" />
+          <li key={item} className="flex items-center justify-between gap-1.5 text-[12px] text-neutral-200">
+            <div className="flex items-center gap-1.5">
+              <span className="h-1 w-1 rounded-full bg-white/70" />
+              <span>{item}</span>
+            </div>
+            <CloseCircle size={13} variant="Bold" className="opacity-60 hover:opacity-100 cursor-pointer" />
           </li>
         ))}
       </ul>

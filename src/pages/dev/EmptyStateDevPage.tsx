@@ -2,7 +2,29 @@ import { DocumentText, SearchNormal1 } from 'iconsax-react';
 
 import { DevBreadcrumb } from '@/pages/dev/_DevBreadcrumb';
 import { Button } from '@/shared/components/ui/button';
+import { CodePreview } from '@/shared/components/ui/code-block';
 import { EmptyState } from '@/shared/components/ui/empty-state';
+
+const emptyStateUsageCode = `import { EmptyState } from '@/shared/components/ui/empty-state';
+import { Button } from '@/shared/components/ui/button';
+import { SearchNormal1 } from 'iconsax-react';
+
+// 1. Tiêu chuẩn (Dành cho trang hoặc bảng dữ liệu)
+<EmptyState
+  icon={<SearchNormal1 size={24} />}
+  title="Không tìm thấy kết quả"
+  description="Thử thay đổi từ khoá hoặc bộ lọc để tìm kết quả phù hợp hơn."
+  primaryAction={<Button size="small">Xoá bộ lọc</Button>}
+  secondaryAction={<Button size="small" variant="outline">Tạo mới</Button>}
+/>
+
+// 2. Thu gọn (Compact - Dành cho dropdown hoặc widget)
+<EmptyState
+  variant="compact"
+  title="Danh sách trống"
+  description="Thêm mới để bắt đầu."
+  primaryAction={<Button size="small">Thêm</Button>}
+/>`;
 
 export const EmptyStateDevPage = () => (
   <div className="min-h-screen w-full space-y-8 bg-background p-6">
@@ -14,12 +36,13 @@ export const EmptyStateDevPage = () => (
       </p>
     </div>
 
-    <section className="space-y-4 rounded-xl border border-border bg-card p-6 shadow-xs">
-      <div className="border-b border-border pb-3">
-        <h2 className="text-title-1 font-semibold text-foreground">1. Kích thước tiêu chuẩn (Default)</h2>
-        <p className="text-body-2-rg text-muted-foreground mt-0.5">Dành cho các trang chính, danh sách bảng trống hoặc kết quả tìm kiếm.</p>
-      </div>
-      <div className="grid gap-6 pt-2 md:grid-cols-2">
+    {/* ── 1. Default Size ── */}
+    <CodePreview
+      title="1. Kích thước tiêu chuẩn (Default)"
+      description="Dành cho các trang chính, danh sách bảng trống hoặc kết quả tìm kiếm."
+      code={emptyStateUsageCode}
+    >
+      <div className="grid gap-6 md:grid-cols-2">
         <div className="rounded-xl border border-dashed border-border bg-muted/10">
           <EmptyState
             icon={<SearchNormal1 size={24} variant="Linear" />}
@@ -38,8 +61,9 @@ export const EmptyStateDevPage = () => (
           />
         </div>
       </div>
-    </section>
+    </CodePreview>
 
+    {/* ── 2. Compact Size ── */}
     <section className="space-y-4 rounded-xl border border-border bg-card p-6 shadow-xs">
       <div className="border-b border-border pb-3">
         <h2 className="text-title-1 font-semibold text-foreground">2. Kích thước nhỏ gọn (Compact)</h2>

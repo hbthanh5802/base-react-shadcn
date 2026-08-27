@@ -2,7 +2,27 @@ import { toast } from 'sonner';
 
 import { DevBreadcrumb } from '@/pages/dev/_DevBreadcrumb';
 import { Button } from '@/shared/components/ui/button';
+import { CodePreview } from '@/shared/components/ui/code-block';
 import { Toast } from '@/shared/components/ui/toast';
+
+const toastUsageCode = `import { toast } from 'sonner';
+
+// 1. Thông báo thành công (Success)
+toast.success('Lưu dữ liệu thành công!');
+
+// 2. Thông báo thông tin (Info)
+toast.info('Thông tin: Hệ thống đang đồng bộ...');
+
+// 3. Thông báo cảnh báo (Warning)
+toast.warning('Cảnh báo: Dung lượng sắp đầy!');
+
+// 4. Thông báo lỗi (Error)
+toast.error('Lỗi: Thao tác thất bại!');
+
+// 5. Toast có tiêu đề và mô tả
+toast.error('Lỗi kết nối máy chủ dịch vụ', {
+  description: 'Hệ thống không thể kết nối tới server sau 3000ms.',
+});`;
 
 export const NotificationDevPage = () => {
   const showLongToast = () => {
@@ -28,15 +48,13 @@ export const NotificationDevPage = () => {
         </p>
       </div>
 
-      {/* Interactive Toast */}
-      <section className="space-y-4 rounded-xl border border-border bg-card p-6 shadow-xs">
-        <div className="border-b border-border pb-3">
-          <h2 className="text-title-1 font-semibold text-foreground">1. Kích hoạt thông báo thực tế (Interactive Toast)</h2>
-          <p className="text-body-2-rg text-muted-foreground mt-0.5">
-            Click các nút bên dưới để xem Toast xuất hiện ở góc màn hình.
-          </p>
-        </div>
-        <div className="flex flex-wrap gap-3 pt-2">
+      {/* ── 1. Interactive Toast ── */}
+      <CodePreview
+        title="1. Kích hoạt thông báo thực tế (Interactive Toast)"
+        description="Click các nút bên dưới để xem Toast xuất hiện ở góc màn hình."
+        code={toastUsageCode}
+      >
+        <div className="flex flex-wrap gap-3">
           <Button variant="default" onClick={() => toast.success('Lưu dữ liệu thành công!')}>
             Success Toast
           </Button>
@@ -56,9 +74,9 @@ export const NotificationDevPage = () => {
             Tiêu đề + Mô tả chi tiết
           </Button>
         </div>
-      </section>
+      </CodePreview>
 
-      {/* Design Preview Section */}
+      {/* ── 2. Design Preview Section ── */}
       <section className="space-y-4 rounded-xl border border-border bg-card p-6 shadow-xs">
         <div className="border-b border-border pb-3">
           <h2 className="text-title-1 font-semibold text-foreground">2. Xem trước mẫu giao diện Toast (Design Preview)</h2>
@@ -84,17 +102,6 @@ export const NotificationDevPage = () => {
             variant="error"
             title="Lỗi kết nối máy chủ"
             description="Không thể kết nối đến máy chủ. Vui lòng thử lại sau."
-          />
-          <Toast
-            variant="success"
-            title="Có nút hành động"
-            description="Tài liệu đã được tải lên thành công."
-            action={
-              <Button size="small" variant="outline">
-                Xem chi tiết
-              </Button>
-            }
-            onDismiss={() => {}}
           />
         </div>
       </section>

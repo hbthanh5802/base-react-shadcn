@@ -2,6 +2,7 @@ import { useState } from 'react';
 
 import { DevBreadcrumb } from '@/pages/dev/_DevBreadcrumb';
 import { Button } from '@/shared/components/ui/button';
+import { CodePreview } from '@/shared/components/ui/code-block';
 import { Stepper } from '@/shared/components/ui/stepper';
 
 const steps = [
@@ -9,6 +10,39 @@ const steps = [
   { label: 'Kiểm tra & Xác nhận', description: 'Rà soát tài liệu đính kèm' },
   { label: 'Hoàn thành quy trình', description: 'Phê duyệt và lưu trữ' },
 ];
+
+const stepperUsageCode = `import { useState } from 'react';
+import { Stepper } from '@/shared/components/ui/stepper';
+import { Button } from '@/shared/components/ui/button';
+
+const steps = [
+  { label: 'Nhập thông tin', description: 'Điền thông tin hồ sơ' },
+  { label: 'Kiểm tra & Xác nhận', description: 'Rà soát tài liệu' },
+  { label: 'Hoàn thành', description: 'Phê duyệt và lưu trữ' },
+];
+
+export function StepperExample() {
+  const [current, setCurrent] = useState(1);
+
+  return (
+    <div className="space-y-4">
+      {/* Stepper ngang */}
+      <Stepper steps={steps} currentStep={current} />
+
+      {/* Hoặc Stepper dọc */}
+      {/* <Stepper steps={steps} currentStep={current} orientation="vertical" /> */}
+
+      <div className="flex gap-2">
+        <Button disabled={current === 0} onClick={() => setCurrent(c => c - 1)}>
+          Quay lại
+        </Button>
+        <Button disabled={current === steps.length} onClick={() => setCurrent(c => c + 1)}>
+          Tiếp theo
+        </Button>
+      </div>
+    </div>
+  );
+}`;
 
 export const StepperDevPage = () => {
   const [current, setCurrent] = useState(1);
@@ -23,12 +57,13 @@ export const StepperDevPage = () => {
         </p>
       </div>
 
-      <section className="space-y-4 rounded-xl border border-border bg-card p-6 shadow-xs">
-        <div className="border-b border-border pb-3">
-          <h2 className="text-title-1 font-semibold text-foreground">1. Thử nghiệm tương tác (Interactive Stepper)</h2>
-          <p className="text-body-2-rg text-muted-foreground mt-0.5">Bấm nút để di chuyển qua lại giữa các bước.</p>
-        </div>
-        <div className="space-y-6 pt-2">
+      {/* ── 1. Interactive Stepper ── */}
+      <CodePreview
+        title="1. Thử nghiệm tương tác (Interactive Stepper)"
+        description="Bấm nút để di chuyển qua lại giữa các bước."
+        code={stepperUsageCode}
+      >
+        <div className="space-y-6">
           <Stepper steps={steps} currentStep={current} />
           <div className="flex gap-3 pt-2 border-t border-border">
             <Button
@@ -51,8 +86,9 @@ export const StepperDevPage = () => {
             </Button>
           </div>
         </div>
-      </section>
+      </CodePreview>
 
+      {/* ── 2. Vertical Orientation ── */}
       <section className="space-y-4 rounded-xl border border-border bg-card p-6 shadow-xs">
         <div className="border-b border-border pb-3">
           <h2 className="text-title-1 font-semibold text-foreground">2. Hướng dọc (Vertical Orientation)</h2>

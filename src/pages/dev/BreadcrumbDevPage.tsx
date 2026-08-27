@@ -3,6 +3,27 @@ import { useState } from 'react';
 import { DevBreadcrumb } from '@/pages/dev/_DevBreadcrumb';
 import { Breadcrumb } from '@/shared/components/ui/breadcrumb';
 import { Button } from '@/shared/components/ui/button';
+import { CodePreview } from '@/shared/components/ui/code-block';
+
+const breadcrumbUsageCode = `import { Breadcrumb } from '@/shared/components/ui/breadcrumb';
+
+// 1. Breadcrumb danh sách tĩnh
+<Breadcrumb
+  items={[
+    { label: 'Trang chủ', href: '/' },
+    { label: 'Quản lý nhân sự', href: '/users' },
+    { label: 'Chi tiết nhân viên' },
+  ]}
+/>
+
+// 2. Breadcrumb có sự kiện điều hướng
+<Breadcrumb
+  items={items}
+  onNavigate={(index, item, event) => {
+    event.preventDefault();
+    console.log('Navigate to:', item);
+  }}
+/>`;
 
 export const BreadcrumbDevPage = () => {
   const [stack, setStack] = useState(['Trang chủ', 'Danh mục', 'Sản phẩm']);
@@ -19,18 +40,20 @@ export const BreadcrumbDevPage = () => {
         </p>
       </div>
 
-      <section className="space-y-4 rounded-xl border border-border bg-card p-6 shadow-xs">
-        <div className="border-b border-border pb-3">
-          <h2 className="text-title-1 font-semibold text-foreground">1. Các cấp độ hiển thị mẫu</h2>
-          <p className="text-body-2-rg text-muted-foreground mt-0.5">Tự động chèn dấu phân cách giữa các cấp độ trang.</p>
-        </div>
-        <div className="space-y-3 pt-2">
+      {/* ── 1. Static Preview ── */}
+      <CodePreview
+        title="1. Các cấp độ hiển thị mẫu"
+        description="Tự động chèn dấu phân cách giữa các cấp độ trang."
+        code={breadcrumbUsageCode}
+      >
+        <div className="space-y-3">
           <Breadcrumb items={[{ label: 'Trang chủ' }]} />
           <Breadcrumb items={[{ label: 'Trang chủ' }, { label: 'Báo cáo tổng hợp' }]} />
           <Breadcrumb items={[{ label: 'Trang chủ' }, { label: 'Quản lý' }, { label: 'Danh sách nhân sự' }]} />
         </div>
-      </section>
+      </CodePreview>
 
+      {/* ── 2. Interactive ── */}
       <section className="space-y-4 rounded-xl border border-border bg-card p-6 shadow-xs">
         <div className="border-b border-border pb-3">
           <h2 className="text-title-1 font-semibold text-foreground">2. Điều hướng tương tác (Interactive)</h2>

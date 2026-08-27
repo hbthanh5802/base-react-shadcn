@@ -3,6 +3,7 @@ import { useState } from 'react';
 
 import { DevBreadcrumb } from '@/pages/dev/_DevBreadcrumb';
 import { Button } from '@/shared/components/ui/button';
+import { CodePreview } from '@/shared/components/ui/code-block';
 import {
   DropdownMenu,
   DropdownMenuCheckboxItem,
@@ -13,6 +14,74 @@ import {
   DropdownMenuTrigger,
 } from '@/shared/components/ui/dropdown-menu';
 import { IconButton } from '@/shared/components/ui/icon-button';
+
+const actionMenuCode = `import {
+  DropdownMenu,
+  DropdownMenuTrigger,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+} from '@/shared/components/ui/dropdown-menu';
+import { Button } from '@/shared/components/ui/button';
+import { Eye, Edit2, Trash } from 'lucide-react';
+
+<DropdownMenu>
+  <DropdownMenuTrigger asChild>
+    <Button variant="outline">Thao tác dữ liệu</Button>
+  </DropdownMenuTrigger>
+  <DropdownMenuContent className="w-56">
+    <DropdownMenuLabel>Tác vụ chính</DropdownMenuLabel>
+    <DropdownMenuSeparator />
+    <DropdownMenuItem className="gap-2">
+      <Eye size={16} />
+      <span>Xem chi tiết</span>
+    </DropdownMenuItem>
+    <DropdownMenuItem className="gap-2">
+      <Edit2 size={16} />
+      <span>Chỉnh sửa thông tin</span>
+    </DropdownMenuItem>
+    <DropdownMenuSeparator />
+    <DropdownMenuItem className="gap-2 text-destructive focus:text-destructive">
+      <Trash size={16} />
+      <span>Xóa bản ghi</span>
+    </DropdownMenuItem>
+  </DropdownMenuContent>
+</DropdownMenu>`;
+
+const checkboxMenuCode = `import { useState } from 'react';
+import {
+  DropdownMenu,
+  DropdownMenuTrigger,
+  DropdownMenuContent,
+  DropdownMenuCheckboxItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+} from '@/shared/components/ui/dropdown-menu';
+import { Button } from '@/shared/components/ui/button';
+
+export function CheckboxMenuExample() {
+  const [bookmarked, setBookmarked] = useState(true);
+  const [showArchived, setShowArchived] = useState(false);
+
+  return (
+    <DropdownMenu>
+      <DropdownMenuTrigger asChild>
+        <Button variant="outline">Tùy chỉnh hiển thị</Button>
+      </DropdownMenuTrigger>
+      <DropdownMenuContent className="w-56">
+        <DropdownMenuLabel>Cấu hình bộ lọc</DropdownMenuLabel>
+        <DropdownMenuSeparator />
+        <DropdownMenuCheckboxItem checked={bookmarked} onCheckedChange={setBookmarked}>
+          Đã đánh dấu sao
+        </DropdownMenuCheckboxItem>
+        <DropdownMenuCheckboxItem checked={showArchived} onCheckedChange={setShowArchived}>
+          Hiển thị mục lưu trữ
+        </DropdownMenuCheckboxItem>
+      </DropdownMenuContent>
+    </DropdownMenu>
+  );
+}`;
 
 export const DropdownMenuDevPage = () => {
   const [bookmarked, setBookmarked] = useState(true);
@@ -28,12 +97,13 @@ export const DropdownMenuDevPage = () => {
         </p>
       </div>
 
-      <section className="space-y-4 rounded-xl border border-border bg-card p-6 shadow-xs">
-        <div className="border-b border-border pb-3">
-          <h2 className="text-title-1 font-semibold text-foreground">1. Menu thao tác dạng nút bấm</h2>
-          <p className="text-body-2-rg text-muted-foreground mt-0.5">Kích hoạt từ một nút bấm thường kèm icon thao tác.</p>
-        </div>
-        <div className="flex flex-wrap items-center gap-4 pt-2">
+      {/* ── 1. Action Menu ── */}
+      <CodePreview
+        title="1. Menu thao tác dạng nút bấm"
+        description="Kích hoạt từ một nút bấm thường kèm icon thao tác."
+        code={actionMenuCode}
+      >
+        <div className="flex flex-wrap items-center gap-4">
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <Button variant="outline">Thao tác dữ liệu</Button>
@@ -71,31 +141,30 @@ export const DropdownMenuDevPage = () => {
             </DropdownMenuContent>
           </DropdownMenu>
         </div>
-      </section>
+      </CodePreview>
 
-      <section className="space-y-4 rounded-xl border border-border bg-card p-6 shadow-xs">
-        <div className="border-b border-border pb-3">
-          <h2 className="text-title-1 font-semibold text-foreground">2. Menu có hộp kiểm (Checkbox Items)</h2>
-          <p className="text-body-2-rg text-muted-foreground mt-0.5">Bật / tắt các chế độ hiển thị hoặc bộ lọc cột.</p>
-        </div>
-        <div className="pt-2">
-          <DropdownMenu>
-            <DropdownMenuTrigger asChild>
-              <Button variant="outline">Tùy chỉnh hiển thị</Button>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent className="w-56">
-              <DropdownMenuLabel>Cấu hình bộ lọc</DropdownMenuLabel>
-              <DropdownMenuSeparator />
-              <DropdownMenuCheckboxItem checked={bookmarked} onCheckedChange={setBookmarked}>
-                Đã đánh dấu sao
-              </DropdownMenuCheckboxItem>
-              <DropdownMenuCheckboxItem checked={showArchived} onCheckedChange={setShowArchived}>
-                Hiển thị mục lưu trữ
-              </DropdownMenuCheckboxItem>
-            </DropdownMenuContent>
-          </DropdownMenu>
-        </div>
-      </section>
+      {/* ── 2. Checkbox Items ── */}
+      <CodePreview
+        title="2. Menu có hộp kiểm (Checkbox Items)"
+        description="Bật / tắt các chế độ hiển thị hoặc bộ lọc cột."
+        code={checkboxMenuCode}
+      >
+        <DropdownMenu>
+          <DropdownMenuTrigger asChild>
+            <Button variant="outline">Tùy chỉnh hiển thị</Button>
+          </DropdownMenuTrigger>
+          <DropdownMenuContent className="w-56">
+            <DropdownMenuLabel>Cấu hình bộ lọc</DropdownMenuLabel>
+            <DropdownMenuSeparator />
+            <DropdownMenuCheckboxItem checked={bookmarked} onCheckedChange={setBookmarked}>
+              Đã đánh dấu sao
+            </DropdownMenuCheckboxItem>
+            <DropdownMenuCheckboxItem checked={showArchived} onCheckedChange={setShowArchived}>
+              Hiển thị mục lưu trữ
+            </DropdownMenuCheckboxItem>
+          </DropdownMenuContent>
+        </DropdownMenu>
+      </CodePreview>
     </div>
   );
 };

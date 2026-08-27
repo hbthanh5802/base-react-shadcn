@@ -83,10 +83,8 @@ export function ChildItem({ item }: { item: ChildNavItem }) {
             </span>
           </div>
         </TooltipTrigger>
-        <TooltipContent side="right" sideOffset={12}>
-          <TooltipBody size="sm" className="max-w-xs break-words text-xs">
-            {item.label}
-          </TooltipBody>
+        <TooltipContent side="right" sideOffset={8}>
+          {item.label}
         </TooltipContent>
       </Tooltip>
     );
@@ -112,10 +110,8 @@ export function ChildItem({ item }: { item: ChildNavItem }) {
           </span>
         </NavLink>
       </TooltipTrigger>
-      <TooltipContent side="right" sideOffset={12}>
-        <TooltipBody size="sm" className="max-w-xs break-words text-xs">
-          {item.label}
-        </TooltipBody>
+      <TooltipContent side="right" sideOffset={8}>
+        {item.label}
       </TooltipContent>
     </Tooltip>
   );
@@ -196,10 +192,8 @@ export function NavItem({ item, defaultOpenForce }: NavItemProps) {
                 <span className="truncate">{item.label}</span>
               </NavLink>
             </TooltipTrigger>
-            <TooltipContent side="right" sideOffset={12}>
-              <TooltipBody size="sm" className="max-w-xs break-words text-xs">
-                {item.label}
-              </TooltipBody>
+            <TooltipContent side="right" sideOffset={8}>
+              {item.label}
             </TooltipContent>
           </Tooltip>
           <button
@@ -232,10 +226,8 @@ export function NavItem({ item, defaultOpenForce }: NavItemProps) {
                 <span className="truncate">{item.label}</span>
               </button>
             </TooltipTrigger>
-            <TooltipContent side="right" sideOffset={12}>
-              <TooltipBody size="sm" className="max-w-xs break-words text-xs">
-                {item.label}
-              </TooltipBody>
+            <TooltipContent side="right" sideOffset={8}>
+              {item.label}
             </TooltipContent>
           </Tooltip>
           <button
@@ -265,10 +257,8 @@ export function NavItem({ item, defaultOpenForce }: NavItemProps) {
             <span className="min-w-0 flex-1 truncate">{item.label}</span>
           </NavLink>
         </TooltipTrigger>
-        <TooltipContent side="right" sideOffset={12}>
-          <TooltipBody size="sm" className="max-w-xs break-words text-xs">
-            {item.label}
-          </TooltipBody>
+        <TooltipContent side="right" sideOffset={8}>
+          {item.label}
         </TooltipContent>
       </Tooltip>
     );
@@ -282,10 +272,8 @@ export function NavItem({ item, defaultOpenForce }: NavItemProps) {
           <span className="min-w-0 flex-1 truncate">{item.label}</span>
         </div>
       </TooltipTrigger>
-      <TooltipContent side="right" sideOffset={12}>
-        <TooltipBody size="sm" className="max-w-xs break-words text-xs">
-          {item.label}
-        </TooltipBody>
+      <TooltipContent side="right" sideOffset={8}>
+        {item.label}
       </TooltipContent>
     </Tooltip>
   );

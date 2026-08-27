@@ -1,19 +1,62 @@
-import { Calendar, Lock, Sms, User } from 'iconsax-react';
-import { Search, Send } from 'lucide-react';
+import { Lock, Mail, Search, Send } from 'lucide-react';
 import { useState } from 'react';
 import { toast } from 'sonner';
 
 import { DevBreadcrumb } from '@/pages/dev/_DevBreadcrumb';
-import { Input } from '@/shared/components/ui/input';
+import { CodePreview } from '@/shared/components/ui/code-block';
 import { InputGlobal } from '@/shared/components/ui/input-global';
 
+const formatCode = `// Tự động định dạng tiền tệ & bắt sự kiện click trên icon
+<InputGlobal
+  value={currencyRawVal}
+  onChange={(e) => setCurrencyRawVal(e.target.value)}
+  formatDisplayValue={(val) => val ? new Intl.NumberFormat('vi-VN').format(Number(val)) : ''}
+  parseRawValue={(val) => val.replace(/\\D/g, '')}
+  suffix={<span className="text-caption-1-sb text-muted-foreground">VNĐ</span>}
+  placeholder="Nhập số tiền..."
+/>
+
+<InputGlobal
+  defaultValue="nguyenvana@gmail.com"
+  prefixIcon={<Mail size={18} />}
+  suffixIcon={<Send size={18} />}
+  onSuffixIconClick={() => toast.success('Đã gửi')}
+  placeholder="Nhập email..."
+/>`;
+
+const clearablePasswordCode = `// 1. Nút xóa nhanh nội dung (Clearable)
+<InputGlobal
+  value={searchVal}
+  onChange={(e) => setSearchVal(e.target.value)}
+  clearable
+  onClear={() => toast.info('Đã xóa')}
+  prefixIcon={<Search size={18} />}
+  placeholder="Nhập từ khóa..."
+/>
+
+// 2. Ẩn/Hiện mật khẩu (Password Toggle)
+<InputGlobal
+  type="password"
+  showPasswordToggle
+  prefixIcon={<Lock size={18} />}
+  defaultValue="MatKhauBaoMat@123"
+/>`;
+
+const debounceCode = `// Trì hoãn gọi API tìm kiếm với debounce (500ms)
+<InputGlobal
+  placeholder="Gõ văn bản để tìm kiếm..."
+  prefixIcon={<Search size={18} />}
+  debounceTime={500}
+  onDebouncedChange={(val) => {
+    console.log('Debounced:', val);
+  }}
+/>`;
+
 export const InputDevPage = () => {
-  const [value, setValue] = useState('');
   const [searchVal, setSearchVal] = useState('Dữ liệu mẫu');
   const [debouncedVal, setDebouncedVal] = useState('');
   const [currencyRawVal, setCurrencyRawVal] = useState('8000000');
 
-  // Helper formatting for currency: 8000000 -> 8.000.000
   const formatCurrency = (val: string) => {
     if (!val) return '';
     const digits = val.replace(/\D/g, '');
@@ -34,20 +77,15 @@ export const InputDevPage = () => {
         </p>
       </div>
 
-      {/* InputGlobal Demo Section */}
-      <section className="space-y-6 rounded-xl border border-border bg-card p-6 shadow-xs">
-        <div className="border-b border-border pb-3">
-          <h2 className="text-title-1 font-semibold text-foreground">1. Định dạng dữ liệu & Tương tác Icon</h2>
-          <p className="text-body-2-rg text-muted-foreground mt-0.5">
-            Tự động định dạng hiển thị (Formatting) và bắt sự kiện click trên icon.
-          </p>
-        </div>
-
+      {/* ── 1. Formatting & Clickable Icons ── */}
+      <CodePreview
+        title="1. Định dạng dữ liệu & Tương tác Icon"
+        description="Tự động định dạng hiển thị (Formatting) và bắt sự kiện click trên icon."
+        code={formatCode}
+      >
         <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
           <div className="space-y-2">
-            <label className="text-body-2-sb text-foreground">
-              Định dạng tiền tệ (VNĐ)
-            </label>
+            <label className="text-body-2-sb text-foreground">Định dạng tiền tệ (VNĐ)</label>
             <InputGlobal
               value={currencyRawVal}
               onChange={(e) => setCurrencyRawVal(e.target.value)}
@@ -57,17 +95,16 @@ export const InputDevPage = () => {
               placeholder="Nhập số tiền..."
             />
             <p className="text-caption-1-rg text-muted-foreground">
-              Giá trị thô (State/API): <span className="font-mono font-semibold text-primary">{currencyRawVal || '(trống)'}</span>
+              Giá trị thô (State/API):{' '}
+              <span className="font-mono font-semibold text-primary">{currencyRawVal || '(trống)'}</span>
             </p>
           </div>
 
           <div className="space-y-2">
-            <label className="text-body-2-sb text-foreground">
-              Icon có thể bấm (Clickable Icon)
-            </label>
+            <label className="text-body-2-sb text-foreground">Icon có thể bấm (Clickable Icon)</label>
             <InputGlobal
               defaultValue="nguyenvana@gmail.com"
-              prefixIcon={<Sms size={18} />}
+              prefixIcon={<Mail size={18} />}
               suffixIcon={<Send size={18} />}
               onPrefixIconClick={() => toast.info('Đã bấm vào icon Email bên trái')}
               onSuffixIconClick={() => toast.success('Đã bấm vào nút Gửi bên phải')}
@@ -78,20 +115,17 @@ export const InputDevPage = () => {
             </p>
           </div>
         </div>
-      </section>
+      </CodePreview>
 
-      {/* Clearable & Password Toggle */}
-      <section className="space-y-6 rounded-xl border border-border bg-card p-6 shadow-xs">
-        <div className="border-b border-border pb-3">
-          <h2 className="text-title-1 font-semibold text-foreground">2. Nút Xóa nhanh (Clearable) & Ẩn/Hiện mật khẩu</h2>
-          <p className="text-body-2-rg text-muted-foreground mt-0.5">Tiện ích xóa nhanh giá trị và xem mật khẩu.</p>
-        </div>
-
+      {/* ── 2. Clearable & Password Toggle ── */}
+      <CodePreview
+        title="2. Nút Xóa nhanh (Clearable) & Ẩn/Hiện mật khẩu"
+        description="Tiện ích xóa nhanh giá trị và xem mật khẩu."
+        code={clearablePasswordCode}
+      >
         <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
           <div className="space-y-2">
-            <label className="text-body-2-sb text-foreground">
-              Nút xóa nhanh nội dung (Clearable)
-            </label>
+            <label className="text-body-2-sb text-foreground">Nút xóa nhanh nội dung (Clearable)</label>
             <InputGlobal
               value={searchVal}
               onChange={(e) => setSearchVal(e.target.value)}
@@ -103,9 +137,7 @@ export const InputDevPage = () => {
           </div>
 
           <div className="space-y-2">
-            <label className="text-body-2-sb text-foreground">
-              Ô nhập mật khẩu (Password Toggle)
-            </label>
+            <label className="text-body-2-sb text-foreground">Ô nhập mật khẩu (Password Toggle)</label>
             <InputGlobal
               type="password"
               showPasswordToggle
@@ -115,15 +147,14 @@ export const InputDevPage = () => {
             />
           </div>
         </div>
-      </section>
+      </CodePreview>
 
-      {/* Debounce */}
-      <section className="space-y-6 rounded-xl border border-border bg-card p-6 shadow-xs">
-        <div className="border-b border-border pb-3">
-          <h2 className="text-title-1 font-semibold text-foreground">3. Trì hoãn tìm kiếm (Debounce Change)</h2>
-          <p className="text-body-2-rg text-muted-foreground mt-0.5">Giảm thiểu số lượng request gọi API khi người dùng đang gõ phím.</p>
-        </div>
-
+      {/* ── 3. Debounce Search ── */}
+      <CodePreview
+        title="3. Trì hoãn tìm kiếm (Debounce Change)"
+        description="Giảm thiểu số lượng request gọi API khi người dùng đang gõ phím."
+        code={debounceCode}
+      >
         <div className="space-y-3">
           <InputGlobal
             placeholder="Gõ văn bản để kiểm tra debounce (500ms)..."
@@ -139,13 +170,15 @@ export const InputDevPage = () => {
             <span className="font-mono font-semibold text-primary">{debouncedVal || '(chưa nhập)'}</span>
           </p>
         </div>
-      </section>
+      </CodePreview>
 
-      {/* Standard Input */}
+      {/* ── 4. Input Sizes ── */}
       <section className="space-y-4 rounded-xl border border-border bg-card p-6 shadow-xs">
         <div className="border-b border-border pb-3">
           <h2 className="text-title-1 font-semibold text-foreground">4. Kích thước trường nhập liệu (Input Sizes)</h2>
-          <p className="text-body-2-rg text-muted-foreground mt-0.5">Hỗ trợ 3 kích thước: Nhỏ (Small), Vừa (Medium) và Lớn (Large).</p>
+          <p className="text-body-2-rg text-muted-foreground mt-0.5">
+            Hỗ trợ 3 kích thước: Nhỏ (Small), Vừa (Medium) và Lớn (Large).
+          </p>
         </div>
 
         <div className="grid grid-cols-1 gap-4 md:grid-cols-3 pt-2">

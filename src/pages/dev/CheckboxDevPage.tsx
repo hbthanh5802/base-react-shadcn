@@ -3,9 +3,30 @@ import { useState } from 'react';
 import { DevBreadcrumb } from '@/pages/dev/_DevBreadcrumb';
 import { Button } from '@/shared/components/ui/button';
 import { Checkbox } from '@/shared/components/ui/checkbox';
+import { CodePreview } from '@/shared/components/ui/code-block';
 
 const rowLabelClass = 'text-body-1-sb text-foreground flex items-center';
 const cellClass = 'flex min-h-14 items-center justify-center rounded-lg bg-muted/40 p-2 border border-border/40';
+
+const checkboxInteractiveCode = `import { useState } from 'react';
+import { Checkbox } from '@/shared/components/ui/checkbox';
+
+export function CheckboxExample() {
+  const [checked, setChecked] = useState<boolean | 'indeterminate'>('indeterminate');
+
+  return (
+    <div className="flex items-center gap-3">
+      <Checkbox
+        id="terms"
+        checked={checked}
+        onCheckedChange={setChecked}
+      />
+      <label htmlFor="terms" className="text-sm font-medium cursor-pointer">
+        Tôi đồng ý với các điều khoản và chính sách bảo mật
+      </label>
+    </div>
+  );
+}`;
 
 export const CheckboxDevPage = () => {
   const [checked, setChecked] = useState<boolean | 'indeterminate'>('indeterminate');
@@ -21,9 +42,45 @@ export const CheckboxDevPage = () => {
         </p>
       </div>
 
+      {/* ── 1. Interactive ── */}
+      <CodePreview
+        title="1. Thử nghiệm tương tác (Interactive)"
+        description="Kiểm tra thay đổi giá trị và kích hoạt trạng thái disable."
+        code={checkboxInteractiveCode}
+      >
+        <div className="space-y-4">
+          <div className="flex items-center gap-3 p-4 rounded-lg bg-background border border-border">
+            <Checkbox checked={checked} disabled={disabled} onCheckedChange={setChecked} />
+            <p className="text-body-2-sb text-foreground">
+              Giá trị hiện tại: <span className="font-mono text-primary">{String(checked)}</span>
+            </p>
+          </div>
+
+          <div className="flex flex-wrap gap-2.5">
+            <Button size="small" variant="outline" onClick={() => setChecked(false)}>
+              Đặt: Unchecked
+            </Button>
+            <Button size="small" variant="outline" onClick={() => setChecked('indeterminate')}>
+              Đặt: Indeterminate
+            </Button>
+            <Button size="small" variant="outline" onClick={() => setChecked(true)}>
+              Đặt: Checked
+            </Button>
+            <Button
+              size="small"
+              variant={disabled ? 'default' : 'outline'}
+              onClick={() => setDisabled((prev) => !prev)}
+            >
+              Toggle Disabled ({String(disabled)})
+            </Button>
+          </div>
+        </div>
+      </CodePreview>
+
+      {/* ── 2. Design States ── */}
       <section className="space-y-4 rounded-xl border border-border bg-card p-6 shadow-xs">
         <div className="border-b border-border pb-3">
-          <h2 className="text-title-1 font-semibold text-foreground">1. Ma trận trạng thái (Design States)</h2>
+          <h2 className="text-title-1 font-semibold text-foreground">2. Ma trận trạng thái (Design States)</h2>
           <p className="text-body-2-rg text-muted-foreground mt-0.5">Trạng thái Default, Hover, Pressed, Focus và Disabled.</p>
         </div>
         <div className="w-full overflow-x-auto pt-2">
@@ -55,40 +112,6 @@ export const CheckboxDevPage = () => {
             <div className={cellClass}><Checkbox data-ui-pressed="true" /></div>
             <div className={cellClass}><Checkbox data-ui-focus="true" /></div>
             <div className={cellClass}><Checkbox disabled /></div>
-          </div>
-        </div>
-      </section>
-
-      <section className="space-y-4 rounded-xl border border-border bg-card p-6 shadow-xs">
-        <div className="border-b border-border pb-3">
-          <h2 className="text-title-1 font-semibold text-foreground">2. Thử nghiệm tương tác (Interactive)</h2>
-          <p className="text-body-2-rg text-muted-foreground mt-0.5">Kiểm tra thay đổi giá trị và kích hoạt trạng thái disable.</p>
-        </div>
-        <div className="space-y-4 pt-2">
-          <div className="flex items-center gap-3 p-4 rounded-lg bg-muted/20 border border-border">
-            <Checkbox checked={checked} disabled={disabled} onCheckedChange={setChecked} />
-            <p className="text-body-2-sb text-foreground">
-              Giá trị hiện tại: <span className="font-mono text-primary">{String(checked)}</span>
-            </p>
-          </div>
-
-          <div className="flex flex-wrap gap-2.5">
-            <Button size="small" variant="outline" onClick={() => setChecked(false)}>
-              Đặt: Unchecked
-            </Button>
-            <Button size="small" variant="outline" onClick={() => setChecked('indeterminate')}>
-              Đặt: Indeterminate
-            </Button>
-            <Button size="small" variant="outline" onClick={() => setChecked(true)}>
-              Đặt: Checked
-            </Button>
-            <Button
-              size="small"
-              variant={disabled ? 'default' : 'outline'}
-              onClick={() => setDisabled((prev) => !prev)}
-            >
-              Toggle Disabled ({String(disabled)})
-            </Button>
           </div>
         </div>
       </section>

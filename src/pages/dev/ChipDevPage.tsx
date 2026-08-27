@@ -1,5 +1,6 @@
 import { DevBreadcrumb } from '@/pages/dev/_DevBreadcrumb';
 import { Chip } from '@/shared/components/ui/chip';
+import { CodePreview } from '@/shared/components/ui/code-block';
 import { StatusPill } from '@/shared/components/ui/status-pill';
 
 const lightTones = [
@@ -38,6 +39,18 @@ const dynamicColors = [
   { label: 'Xanh ngọc', color: '#0BA5EC' },
 ];
 
+const chipStatusPillCode = `import { StatusPill } from '@/shared/components/ui/status-pill';
+import { Chip } from '@/shared/components/ui/chip';
+
+// 1. StatusPill (Mã màu HEX động từ API hoặc DB)
+<StatusPill color="#1570EF" label="Đang xử lý" variant="light" size="medium" />
+<StatusPill color="#12B76A" label="Hoàn thành" variant="filled" />
+<StatusPill color="#F79009" label="Cảnh báo" variant="dot" />
+
+// 2. Chip (Bảng màu có sẵn)
+<Chip tone="green" size="medium">Kinh doanh</Chip>
+<Chip tone="blueSolid" size="small">VIP</Chip>`;
+
 export const ChipDevPage = () => {
   return (
     <div className="min-h-screen w-full space-y-8 bg-background p-6">
@@ -49,16 +62,13 @@ export const ChipDevPage = () => {
         </p>
       </div>
 
-      {/* StatusPill Section */}
-      <section className="space-y-4 rounded-xl border border-border bg-card p-6 shadow-xs">
-        <div className="border-b border-border pb-3">
-          <h2 className="text-title-1 font-semibold text-foreground">1. StatusPill (Mã màu động - Dynamic Hex)</h2>
-          <p className="text-body-2-rg text-muted-foreground mt-0.5">
-            Tự động tính toán màu nền và viền từ mã màu Hex tùy chỉnh.
-          </p>
-        </div>
-
-        <div className="space-y-4 pt-2">
+      {/* ── 1. StatusPill ── */}
+      <CodePreview
+        title="1. StatusPill (Mã màu động - Dynamic Hex)"
+        description="Tự động tính toán màu nền và viền từ mã màu Hex tùy chỉnh."
+        code={chipStatusPillCode}
+      >
+        <div className="space-y-4">
           <div className="space-y-2">
             <h3 className="text-body-1-sb text-foreground">Mã màu tùy biến:</h3>
             <div className="flex flex-wrap gap-3">
@@ -87,9 +97,9 @@ export const ChipDevPage = () => {
             </div>
           </div>
         </div>
-      </section>
+      </CodePreview>
 
-      {/* Chip Light Tones */}
+      {/* ── 2. Chip Light Tones ── */}
       <section className="space-y-4 rounded-xl border border-border bg-card p-6 shadow-xs">
         <div className="border-b border-border pb-3">
           <h2 className="text-title-1 font-semibold text-foreground">2. Chip màu sáng (Light Tones)</h2>
@@ -111,7 +121,7 @@ export const ChipDevPage = () => {
         </div>
       </section>
 
-      {/* Chip Dark / Solid Tones */}
+      {/* ── 3. Chip Dark / Solid Tones ── */}
       <section className="space-y-4 rounded-xl border border-border bg-card p-6 shadow-xs">
         <div className="border-b border-border pb-3">
           <h2 className="text-title-1 font-semibold text-foreground">3. Chip màu đậm (Solid Tones)</h2>

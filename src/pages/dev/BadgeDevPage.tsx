@@ -1,5 +1,6 @@
 import { DevBreadcrumb } from '@/pages/dev/_DevBreadcrumb';
 import { Badge } from '@/shared/components/ui/badge';
+import { CodePreview } from '@/shared/components/ui/code-block';
 
 const tones = [
   'brand',
@@ -16,6 +17,24 @@ const tones = [
 const variants = ['filled', 'light', 'outline', 'dot'] as const;
 const sizes = ['sm', 'md', 'lg'] as const;
 
+const badgeUsageCode = `import { Badge } from '@/shared/components/ui/badge';
+
+// 1. Các biến thể kiểu dáng
+<Badge variant="filled" tone="brand">Đã hoàn thành</Badge>
+<Badge variant="light" tone="success">Thành công</Badge>
+<Badge variant="outline" tone="warning">Cảnh báo</Badge>
+<Badge variant="dot" tone="error">Lỗi xử lý</Badge>
+
+// 2. Kích thước (Size)
+<Badge size="sm" tone="blue">Small</Badge>
+<Badge size="md" tone="blue">Medium</Badge>
+<Badge size="lg" tone="blue">Large</Badge>
+
+// 3. Có nút đóng (Dismissible)
+<Badge tone="purple" onDismiss={() => console.log('Dismissed')}>
+  React 19
+</Badge>`;
+
 export const BadgeDevPage = () => (
   <div className="min-h-screen w-full space-y-8 bg-background p-6">
     <DevBreadcrumb label="Badge" />
@@ -26,12 +45,13 @@ export const BadgeDevPage = () => (
       </p>
     </div>
 
-    <section className="space-y-4 rounded-xl border border-border bg-card p-6 shadow-xs">
-      <div className="border-b border-border pb-3">
-        <h2 className="text-title-1 font-semibold text-foreground">1. Biến thể & Tông màu (Variant × Tone)</h2>
-        <p className="text-body-2-rg text-muted-foreground mt-0.5">Filled, light, outline và dot dạng chấm tròn.</p>
-      </div>
-      <div className="space-y-4 pt-2">
+    {/* ── 1. Variant × Tone ── */}
+    <CodePreview
+      title="1. Biến thể & Tông màu (Variant × Tone)"
+      description="Filled, light, outline và dot dạng chấm tròn."
+      code={badgeUsageCode}
+    >
+      <div className="space-y-4">
         {variants.map((variant) => (
           <div key={variant} className="space-y-2">
             <p className="text-caption-1-sb capitalize text-muted-foreground">{variant}</p>
@@ -45,8 +65,9 @@ export const BadgeDevPage = () => (
           </div>
         ))}
       </div>
-    </section>
+    </CodePreview>
 
+    {/* ── 2. Size ── */}
     <section className="space-y-4 rounded-xl border border-border bg-card p-6 shadow-xs">
       <div className="border-b border-border pb-3">
         <h2 className="text-title-1 font-semibold text-foreground">2. Kích thước (Size)</h2>
@@ -61,6 +82,7 @@ export const BadgeDevPage = () => (
       </div>
     </section>
 
+    {/* ── 3. Dismissible ── */}
     <section className="space-y-4 rounded-xl border border-border bg-card p-6 shadow-xs">
       <div className="border-b border-border pb-3">
         <h2 className="text-title-1 font-semibold text-foreground">3. Có nút đóng (Dismissible)</h2>
