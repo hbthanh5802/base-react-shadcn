@@ -1,0 +1,46 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [3 0 R] /Count 1 >>
+endobj
+3 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792]
+   /Resources << /Font << /F1 << /Type /Font /Subtype /Type1 /BaseFont /Helvetica >> >> >>
+   /Contents 4 0 R >>
+endobj
+4 0 obj
+<< /Length 896 >>
+stream
+BT
+/F1 12 Tf
+50 740 Td (DOCUMENT VIEWER - FILE MAU PDF) Tj 0 0 Td
+50 712 Td (Day la file PDF mau duoc tao de kiem tra chuc nang) Tj 0 0 Td
+50 694 Td (xem tai lieu trong he thong quan ly ho so.) Tj 0 0 Td
+50 666 Td (Cac dinh dang duoc ho tro:) Tj 0 0 Td
+50 648 Td (  - PDF  : Xem toan bo trang, zoom, chuyen trang) Tj 0 0 Td
+50 630 Td (  - XLSX : Bang tinh Excel, ho tro nhieu sheet) Tj 0 0 Td
+50 612 Td (  - CSV  : Du lieu dang bang phan cach phay) Tj 0 0 Td
+50 594 Td (  - DOCX : Tai lieu van ban Word) Tj 0 0 Td
+50 576 Td (  - PPTX : Tai ve de xem \(chua ho tro preview\)) Tj 0 0 Td
+50 548 Td (Huong dan su dung thanh cong cu:) Tj 0 0 Td
+50 530 Td (  [<] [>]   Chuyen trang truoc / sau \(chi PDF\)) Tj 0 0 Td
+50 512 Td (  [-] [+]   Thu phong / Phong to noi dung) Tj 0 0 Td
+50 494 Td (  [Tai ve]  Tai file goc ve may tinh) Tj 0 0 Td
+50 466 Td (He thong quan ly ho so quan su - 2024) Tj 0 0 Td
+ET
+endstream
+endobj
+xref
+0 5
+0000000000 65535 f 
+0000000009 00000 n 
+0000000058 00000 n 
+0000000115 00000 n 
+0000000296 00000 n 
+trailer
+<< /Size 5 /Root 1 0 R >>
+startxref
+1243
+%%EOF

@@ -1,0 +1,74 @@
+{
+  "title": "Business Roles",
+  "breadcrumb": {
+    "admin": "Roles & Permissions"
+  },
+  "actions": {
+    "import": "Import",
+    "export": "Export",
+    "add": "Add new",
+    "filter": "Filter",
+    "view": "View",
+    "edit": "Edit",
+    "delete": "Delete",
+    "close": "Close",
+    "confirm": "Confirm",
+    "saving": "Saving..."
+  },
+  "stats": {
+    "totalRoles": "Total accounts",
+    "activeRoles": "In use",
+    "unusedRoles": "Unused",
+    "inactiveRoles": "Suspended"
+  },
+  "table": {
+    "title": "Action Matrix List (126)",
+    "columns": {
+      "index": "No.",
+      "code": "Role Code",
+      "name": "Role Name",
+      "group": "Role Group",
+      "type": "Role Type",
+      "unit": "Applies to Unit",
+      "status": "Status",
+      "updatedAt": "Updated Time",
+      "updatedBy": "Updated by",
+      "actions": "Actions"
+    }
+  },
+  "status": {
+    "ACTIVE": "Active",
+    "DRAFT": "Unapplied",
+    "INACTIVE": "Suspended"
+  },
+  "fields": {
+    "code": "Role Code",
+    "name": "Role Name",
+    "group": "Role Group",
+    "type": "Role Type",
+    "unit": "Applies to Unit",
+    "status": "Status",
+    "updatedBy": "Updated by",
+    "updatedAt": "Updated Time"
+  },
+  "detail": {
+    "title": "View business role details"
+  },
+  "form": {
+    "createTitle": "Add business role",
+    "editTitle": "Edit business role"
+  },
+  "empty": {
+    "title": "No results",
+    "description": "No matching business role found."
+  },
+  "toast": {
+    "importComingSoon": "Import is under development",
+    "exportComingSoon": "Export is under development",
+    "openFilter": "Open advanced filters",
+    "deleted": "Delete {{code}}",
+    "created": "Created {{code}}",
+    "updated": "Updated {{code}}",
+    "error": "Something went wrong. Please try again."
+  }
+}

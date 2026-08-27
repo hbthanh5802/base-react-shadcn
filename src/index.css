@@ -1,0 +1,165 @@
+@import '@fontsource/roboto/400.css';
+@import '@fontsource/roboto/500.css';
+@import '@fontsource/roboto/600.css';
+@import '@fontsource/roboto/700.css';
+@import '@fontsource/roboto-mono/400.css';
+@import '@fontsource/roboto-mono/500.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* shadcn semantic tokens (HSL, no commas — Tailwind opacity-modifier compatible) */
+    --background: 0 0% 97.6%; /* #F9F9F9 */
+    --foreground: 0 0% 6%; /* neutral-1000 */
+
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 6%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 6%;
+
+    --primary: 161 94% 30%; /* primary-600 #059669 */
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 0 0% 96%; /* neutral-50  */
+    --secondary-foreground: 0 0% 6%;
+
+    --muted: 0 0% 96%;
+    --muted-foreground: 204 4% 62%; /* #999FA3 */
+
+    --accent: 0 0% 93%; /* neutral-100 */
+    --accent-foreground: 0 0% 6%;
+
+    --destructive: 4 74% 49%; /* error-600 #D92D20 */
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 0 0% 87%; /* neutral-200 */
+    --input: 0 0% 87%;
+    --ring: 161 94% 30%;
+
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 0 0% 6%; /* neutral-1000 */
+    --foreground: 0 0% 98%;
+
+    --card: 0 0% 10%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 0 0% 10%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 160 84% 39%; /* primary-500 #10B981 */
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 0 0% 19%; /* neutral-800 */
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 0 0% 19%;
+    --muted-foreground: 0 0% 60%;
+
+    --accent: 0 0% 19%;
+    --accent-foreground: 0 0% 98%;
+
+    --destructive: 349 100% 47%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 0 0% 23%; /* neutral-750 */
+    --input: 0 0% 23%;
+    --ring: 215 87% 51%;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    @apply font-sans antialiased;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    @apply bg-background text-body-2-rg text-foreground;
+    font-feature-settings:
+      'rlig' 1,
+      'calt' 1;
+  }
+
+  /* Default heading typography (semantic HTML inherits design tokens automatically) */
+  h1 {
+    @apply text-heading-1;
+  }
+  h2 {
+    @apply text-heading-2;
+  }
+  h3 {
+    @apply text-heading-3;
+  }
+  h4 {
+    @apply text-title-1;
+  }
+  h5 {
+    @apply text-title-2;
+  }
+  h6 {
+    @apply text-title-3;
+  }
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 2px;
+  height: 2px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--border));
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--muted-foreground) / 0.5);
+}
+* {
+  scrollbar-width: thin;
+  scrollbar-color: hsl(var(--border)) transparent;
+}
+
+/* Utility to fully hide scrollbars (e.g. horizontally scrollable tab strips) */
+@layer utilities {
+  .scrollbar-none {
+    -ms-overflow-style: none; /* IE / old Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+  .scrollbar-none::-webkit-scrollbar {
+    display: none; /* Chrome / Safari / Edge */
+    width: 0;
+    height: 0;
+  }
+}
+
+/* Document viewer — Excel/CSV table styles */
+.xlsx-content table {
+  border-collapse: collapse;
+  font-size: 12px;
+  font-family: inherit;
+  white-space: nowrap;
+}
+.xlsx-content td,
+.xlsx-content th {
+  border: 1px solid #d1d5db;
+  padding: 4px 8px;
+  min-width: 60px;
+}
+.xlsx-content tr:first-child td,
+.xlsx-content tr:first-child th {
+  background-color: #f3f4f6;
+  font-weight: 600;
+}

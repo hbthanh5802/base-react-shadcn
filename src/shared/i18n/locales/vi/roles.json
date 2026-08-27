@@ -1,0 +1,74 @@
+{
+  "title": "Vai trò nghiệp vụ",
+  "breadcrumb": {
+    "admin": "Vai trò & Phân quyền"
+  },
+  "actions": {
+    "import": "Import",
+    "export": "Export",
+    "add": "Thêm mới",
+    "filter": "Bộ lọc",
+    "view": "Xem",
+    "edit": "Chỉnh sửa",
+    "delete": "Xóa",
+    "close": "Đóng",
+    "confirm": "Đồng ý",
+    "saving": "Đang lưu..."
+  },
+  "stats": {
+    "totalRoles": "Tổng tài khoản",
+    "activeRoles": "Đang sử dụng",
+    "unusedRoles": "Chưa sử dụng",
+    "inactiveRoles": "Ngưng sử dụng"
+  },
+  "table": {
+    "title": "Danh sách Action Matrix (126)",
+    "columns": {
+      "index": "STT",
+      "code": "Mã vai trò",
+      "name": "Tên vai trò",
+      "group": "Nhóm vai trò",
+      "type": "Loại vai trò",
+      "unit": "Đơn vị áp dụng",
+      "status": "Trạng thái",
+      "updatedAt": "Thời gian cập nhật",
+      "updatedBy": "Người cập nhật",
+      "actions": "Hành động"
+    }
+  },
+  "status": {
+    "ACTIVE": "Đang áp dụng",
+    "DRAFT": "Chưa áp dụng",
+    "INACTIVE": "Ngừng áp dụng"
+  },
+  "fields": {
+    "code": "Mã vai trò",
+    "name": "Tên vai trò",
+    "group": "Nhóm vai trò",
+    "type": "Loại vai trò",
+    "unit": "Đơn vị áp dụng",
+    "status": "Trạng thái",
+    "updatedBy": "Người cập nhật",
+    "updatedAt": "Thời gian cập nhật"
+  },
+  "detail": {
+    "title": "Xem chi tiết vai trò nghiệp vụ"
+  },
+  "form": {
+    "createTitle": "Thêm mới vai trò nghiệp vụ",
+    "editTitle": "Chỉnh sửa vai trò nghiệp vụ"
+  },
+  "empty": {
+    "title": "Không có kết quả",
+    "description": "Không tìm thấy vai trò nghiệp vụ phù hợp."
+  },
+  "toast": {
+    "importComingSoon": "Import: chức năng đang phát triển",
+    "exportComingSoon": "Export: chức năng đang phát triển",
+    "openFilter": "Mở bộ lọc nâng cao",
+    "deleted": "Xóa {{code}}",
+    "created": "Đã thêm mới {{code}}",
+    "updated": "Đã cập nhật {{code}}",
+    "error": "Có lỗi xảy ra, vui lòng thử lại"
+  }
+}

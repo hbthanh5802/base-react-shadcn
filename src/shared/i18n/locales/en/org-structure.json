@@ -1,0 +1,72 @@
+{
+  "title": "Organization Structure",
+  "breadcrumb": {
+    "admin": "Admin Portal"
+  },
+  "actions": {
+    "import": "Import",
+    "export": "Export",
+    "add": "Add new",
+    "filter": "Filter",
+    "view": "View",
+    "edit": "Edit",
+    "delete": "Delete",
+    "close": "Close",
+    "confirm": "Confirm",
+    "saving": "Saving..."
+  },
+  "stats": {
+    "totalConfigs": "Total configs",
+    "activeConfigs": "Active",
+    "draftConfigs": "Draft/Pending",
+    "warnings": "Warnings"
+  },
+  "table": {
+    "title": "Data list",
+    "columns": {
+      "index": "No.",
+      "code": "Code",
+      "name": "Unit name",
+      "parent": "Parent unit",
+      "scope": "Scope/Module",
+      "status": "Status",
+      "updatedBy": "Updated by",
+      "updatedAt": "Updated date",
+      "actions": "Actions"
+    }
+  },
+  "status": {
+    "ACTIVE": "Active",
+    "DRAFT": "Draft",
+    "INACTIVE": "Inactive"
+  },
+  "fields": {
+    "code": "Code",
+    "name": "Unit name",
+    "parent": "Parent unit",
+    "scope": "Scope/Module",
+    "status": "Status",
+    "updatedBy": "Updated by",
+    "updatedAt": "Updated date"
+  },
+  "detail": {
+    "title": "View organization structure details"
+  },
+  "form": {
+    "createTitle": "Add organization structure",
+    "editTitle": "Edit organization structure"
+  },
+  "empty": {
+    "title": "No results",
+    "description": "No matching organization structure found."
+  },
+  "toast": {
+    "importComingSoon": "Import is under development",
+    "exportComingSoon": "Export is under development",
+    "openFilter": "Open advanced filters",
+    "deleted": "Delete {{code}}",
+    "created": "Created {{code}}",
+    "updated": "Updated {{code}}",
+    "error": "Something went wrong. Please try again."
+  }
+}

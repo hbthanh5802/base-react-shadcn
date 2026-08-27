@@ -1,0 +1,96 @@
+{
+  "title": "Workflow",
+  "breadcrumb": {
+    "admin": "Admin Portal"
+  },
+  "actions": {
+    "import": "Import",
+    "export": "Export",
+    "add": "Add New",
+    "filter": "Filter",
+    "view": "View",
+    "edit": "Edit",
+    "delete": "Delete",
+    "close": "Close",
+    "confirm": "Confirm",
+    "saving": "Saving...",
+    "cancel": "Cancel",
+    "save": "Save",
+    "back": "Back to List"
+  },
+  "table": {
+    "title": "Workflow List",
+    "stageTitle": "List of Stages in Workflow",
+    "taskTitle": "List of Tasks"
+  },
+  "toast": {
+    "importComingSoon": "Import: coming soon",
+    "exportComingSoon": "Export: coming soon",
+    "openFilter": "Open filter options",
+    "deleted": "Deleted {{code}}",
+    "created": "Added {{code}} successfully",
+    "updated": "Updated {{code}} successfully",
+    "error": "An error occurred, please try again",
+    "displayOrderDuplicated": "Display order already exists in the workflow",
+    "notFoundTitle": "Information Not Found",
+    "notFoundDesc": "The requested workflow was not found or has been deleted."
+  },
+  "modal": {
+    "createTitle": "Add New Workflow",
+    "editTitle": "Edit Workflow",
+    "viewTitle": "Workflow Details"
+  },
+  "fields": {
+    "moduleCode": "Module Code",
+    "moduleName": "Module Name",
+    "department": "Organization",
+    "process": "Corresponding Process",
+    "status": "Status",
+    "createdBy": "Created By",
+    "createdAt": "Created Date",
+    "actions": "Actions",
+    "index": "No.",
+    "workflowName": "Workflow Name",
+    "workflowCode": "Workflow Code",
+    "stageCount": "Number of Stages",
+    "module": "Module",
+    "processCorresponding": "Corresponding Process",
+    "allowAutoComplete": "Auto complete workflow when all stages are completed",
+    "updatedBy": "Updated By",
+    "updatedAt": "Updated Date",
+    "stageCode": "Stage Code",
+    "stageName": "Stage Name",
+    "displayOrder": "Display Order",
+    "isEnd": "Auto complete and forward when all tasks are done",
+    "description": "Description"
+  },
+  "statusOptions": {
+    "ACTIVE": "Active",
+    "INACTIVE": "Inactive"
+  },
+  "tabs": {
+    "overview": "General Info",
+    "steps": "Stages",
+    "stageOverview": "General Info",
+    "stageTasks": "Tasks in Stage",
+    "docChecklist": "Required Documents"
+  },
+  "docChecklist": {
+    "title": "Required Documents",
+    "code": "Document Group Code",
+    "name": "Document Group Name",
+    "source": "Source",
+    "items": "Documents by Group",
+    "itemCode": "Document Code",
+    "itemName": "Document Name",
+    "itemSource": "Source",
+    "placeholder": {
+      "code": "Enter document group code",
+      "name": "Document group name",
+      "source": "Source",
+      "itemCode": "Enter document code",
+      "itemName": "Enter document name",
+      "itemSource": "Enter upload source"
+    }
+  }
+}

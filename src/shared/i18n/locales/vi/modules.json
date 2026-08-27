@@ -1,0 +1,59 @@
+{
+  "title": "Phân hệ nghiệp vụ",
+  "breadcrumb": {
+    "admin": "Admin Portal"
+  },
+  "actions": {
+    "import": "Import",
+    "export": "Export",
+    "add": "Thêm mới",
+    "filter": "Bộ lọc",
+    "view": "Xem",
+    "edit": "Chỉnh sửa",
+    "delete": "Xóa",
+    "close": "Đóng",
+    "confirm": "Đồng ý",
+    "saving": "Đang lưu...",
+    "search": "Tìm kiếm"
+  },
+  "stats": {
+    "totalConfigs": "Tổng cấu hình",
+    "activeConfigs": "Đang hiệu lực",
+    "draftConfigs": "Draft/Chờ duyệt",
+    "warnings": "Cảnh báo"
+  },
+  "table": {
+    "title": "Danh sách dữ liệu"
+  },
+  "toast": {
+    "importComingSoon": "Import: chức năng đang phát triển",
+    "exportComingSoon": "Export: chức năng đang phát triển",
+    "openFilter": "Mở bộ lọc nâng cao",
+    "deleted": "Xóa {{code}}",
+    "created": "Đã thêm mới {{code}}",
+    "updated": "Đã cập nhật {{code}}",
+    "error": "Có lỗi xảy ra, vui lòng thử lại"
+  },
+  "modal": {
+    "createTitle": "Thêm mới",
+    "editTitle": "Chỉnh sửa",
+    "viewTitle": "Xem chi tiết"
+  },
+  "fields": {
+    "moduleCode": "Mã phân hệ",
+    "moduleName": "Tên phân hệ",
+    "department": "Đơn vị phụ trách",
+    "process": "Quy trình",
+    "routerPath": "Route path",
+    "route": "Route",
+    "status": "Trạng thái",
+    "createdBy": "Người tạo",
+    "createdAt": "Ngày tạo",
+    "actions": "Hành động",
+    "index": "STT"
+  },
+  "statusOptions": {
+    "ACTIVE": "Hoạt động",
+    "INACTIVE": "Không hoạt động"
+  }
+}

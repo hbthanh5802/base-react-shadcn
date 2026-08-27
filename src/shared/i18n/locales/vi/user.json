@@ -1,0 +1,92 @@
+{
+  "title": "Quản lý người dùng",
+  "createUser": "Tạo người dùng",
+  "editUser": "Chỉnh sửa người dùng",
+  "searchPlaceholder": "Tìm kiếm theo tên hoặc email...",
+  "deleteConfirmTitle": "Xác nhận xóa",
+  "deleteConfirmDesc": "Bạn có chắc chắn muốn xóa người dùng này? Hành động này không thể hoàn tác.",
+  "roles": {
+    "admin": "Admin",
+    "editor": "Biên tập viên",
+    "viewer": "Người xem"
+  },
+  "fields": {
+    "name": "Họ tên",
+    "email": "Email",
+    "role": "Vai trò",
+    "status": "Trạng thái",
+    "createdAt": "Ngày tạo",
+    "password": "Mật khẩu"
+  },
+  "validation": {
+    "passwordRequired": "Mật khẩu là bắt buộc"
+  },
+  "adminScreen": {
+    "title": "Tài khoản người dùng",
+    "breadcrumb": {
+      "admin": "Tổ chức & Người dùng"
+    },
+    "actions": {
+      "import": "Import",
+      "export": "Export",
+      "add": "Thêm mới",
+      "filter": "Bộ lọc",
+      "view": "Xem",
+      "edit": "Chỉnh sửa",
+      "delete": "Xóa",
+      "close": "Đóng",
+      "confirm": "Đồng ý",
+      "saving": "Đang lưu..."
+    },
+    "stats": {
+      "totalAccounts": "Tổng tài khoản",
+      "activeAccounts": "Đang hoạt động",
+      "lockedAccounts": "Bị khoá",
+      "inactiveAccounts": "Chưa kích hoạt"
+    },
+    "table": {
+      "title": "Danh sách dữ liệu",
+      "columns": {
+        "index": "STT",
+        "name": "Họ và Tên",
+        "title": "Chức danh",
+        "roles": "Vai trò",
+        "status": "Trạng thái hoạt động",
+        "actions": "Hành động"
+      }
+    },
+    "status": {
+      "ACTIVE": "Hoạt động",
+      "DRAFT": "Chưa kích hoạt",
+      "INACTIVE": "Bị khoá"
+    },
+    "fields": {
+      "code": "Mã",
+      "name": "Tên",
+      "scope": "Phạm vi/Module",
+      "status": "Trạng thái",
+      "updatedBy": "Cập nhật bởi",
+      "updatedAt": "Ngày cập nhật"
+    },
+    "detail": {
+      "title": "Xem chi tiết tài khoản người dùng"
+    },
+    "form": {
+      "createTitle": "Thêm mới tài khoản người dùng",
+      "editTitle": "Chỉnh sửa tài khoản người dùng"
+    },
+    "empty": {
+      "title": "Không có kết quả",
+      "description": "Không tìm thấy tài khoản người dùng phù hợp."
+    },
+    "toast": {
+      "importComingSoon": "Import: chức năng đang phát triển",
+      "exportComingSoon": "Export: chức năng đang phát triển",
+      "openFilter": "Mở bộ lọc nâng cao",
+      "deleted": "Xóa {{code}}",
+      "created": "Đã thêm mới {{code}}",
+      "updated": "Đã cập nhật {{code}}",
+      "error": "Có lỗi xảy ra, vui lòng thử lại"
+    }
+  }
+}

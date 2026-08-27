@@ -1,0 +1,76 @@
+﻿{
+  "nav": {
+    "dashboard": "Dashboard",
+    "users": "Users",
+    "products": "Products",
+    "analytics": "Analytics",
+    "settings": "Settings"
+  },
+  "actions": {
+    "save": "Save",
+    "cancel": "Cancel",
+    "delete": "Delete",
+    "edit": "Edit",
+    "create": "Create",
+    "confirm": "Confirm",
+    "search": "Search",
+    "backHome": "Back to Home",
+    "add": "Add"
+  },
+  "status": {
+    "active": "Active",
+    "inactive": "Inactive"
+  },
+  "loading": "Processing...",
+  "errors": {
+    "occurred": "An error occurred",
+    "unknown": "Unknown error",
+    "notFound": "Page not found"
+  },
+  "dashboard": {
+    "totalUsers": "Total users",
+    "orders": "Orders",
+    "revenue": "Revenue",
+    "growth": "Growth",
+    "pageTitle": "Home",
+    "viewPendingTasks": "View pending tasks",
+    "exportReport": "Export report",
+    "taskList": "Task list",
+    "noTasks": "No tasks found",
+    "notifications": "Notifications",
+    "viewMoreNotifications": "View more notifications",
+    "workCount": "Tasks: {{count}}",
+    "viewMore": "View more",
+    "quickAccess": "Quick access"
+  },
+  "footer": {
+    "sourceNote": "Please cite xyz.vn, abc.gov.vn when republishing information from the Department of Metrology – Standards – Quality",
+    "nav": {
+      "home": "Home",
+      "business": "Business",
+      "reports": "Lookup & reports"
+    },
+    "orgName": "Department of Metrology - Standards - Quality",
+    "address": "Address: 11 Hoang Sam St., Nghia Do Ward, Hanoi — Tel: +84.xx.yy.zzzz — Email: info@xyz.gov.vn",
+    "website": "Website: xyz.vn, abc.gov.vn",
+    "decree": "Decision No. 3548/QD-BQP dated 25/9/2012"
+  },
+  "messages": {
+    "createSuccess": "Created successfully",
+    "updateSuccess": "Updated successfully",
+    "deleteSuccess": "Deleted successfully",
+    "deleteConfirm": "Are you sure you want to delete?"
+  },
+  "certStandard": {
+    "relatedDocuments": {
+      "documentList": "Document list",
+      "activeDocuments": "In-progress documents",
+      "pendingDocuments": "Pending",
+      "overdueDocuments": "Overdue/Rework",
+      "myDocumentTasks": "My tasks"
+    }
+  },
+  "loadingData": "Loading data",
+  "noData": "No data",
+  "search": "Search"
+}

@@ -1,0 +1,47 @@
+{
+  "pagination": {
+    "showRecordsPerPage": "Records per page:",
+    "goToPage": "Go to page:",
+    "pageNumberPlaceholder": "no.",
+    "totalItems": "Total: {{count}}",
+    "prevPage": "Previous page",
+    "nextPage": "Next page",
+    "goToPageAriaLabel": "Go to page",
+    "page": "Page {{page}}"
+  },
+  "badge": {
+    "dismiss": "Dismiss"
+  },
+  "dialog": {
+    "close": "Close"
+  },
+  "toast": {
+    "dismiss": "Dismiss"
+  },
+  "datePicker": {
+    "prevYear": "Previous year",
+    "prev": "Previous",
+    "next": "Next",
+    "nextYear": "Next year",
+    "selectDate": "Select date",
+    "startDate": "Start date",
+    "endDate": "End date",
+    "weekdays": ["Mo", "Tu", "We", "Th", "Fr", "Sa", "Su"],
+    "months": [
+      "January",
+      "February",
+      "March",
+      "April",
+      "May",
+      "June",
+      "July",
+      "August",
+      "September",
+      "October",
+      "November",
+      "December"
+    ],
+    "quarters": ["Q1", "Q2", "Q3", "Q4"],
+    "clear": "Clear"
+  }
+}

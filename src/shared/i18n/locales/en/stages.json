@@ -1,0 +1,68 @@
+{
+  "title": "Stages",
+  "breadcrumb": {
+    "admin": "Admin Portal"
+  },
+  "actions": {
+    "import": "Import",
+    "export": "Export",
+    "add": "Add New",
+    "filter": "Filter",
+    "view": "View",
+    "edit": "Edit",
+    "delete": "Delete",
+    "close": "Close",
+    "confirm": "Confirm",
+    "saving": "Saving...",
+    "cancel": "Cancel",
+    "save": "Save"
+  },
+  "table": {
+    "title": "Stage List",
+    "stageTitle": "List of Stages in Workflow",
+    "taskTitle": "List of Tasks"
+  },
+  "toast": {
+    "importComingSoon": "Import: feature coming soon",
+    "exportComingSoon": "Export: feature coming soon",
+    "openFilter": "Open advanced filter",
+    "deleted": "Deleted {{code}}",
+    "created": "Added {{code}} successfully",
+    "updated": "Updated {{code}} successfully",
+    "error": "An error occurred, please try again",
+    "displayOrderDuplicated": "Display order already exists in the workflow",
+    "unknownStageId": "Stage is unknown"
+  },
+  "modal": {
+    "createTitle": "Add New Stage",
+    "editTitle": "Edit Stage",
+    "viewTitle": "Stage Details",
+    "createTaskTitle": "Add New Task to Stage",
+    "editTaskTitle": "Edit Task in Stage",
+    "viewTaskTitle": "Task Details in Stage"
+  },
+  "fields": {
+    "status": "Status",
+    "actions": "Actions",
+    "index": "No.",
+    "stageCode": "Stage Code",
+    "stageName": "Stage Name",
+    "process": "Process",
+    "module": "Module",
+    "displayOrder": "Display Order",
+    "isEnd": "Auto complete and forward when all tasks are done",
+    "description": "Description",
+    "taskCount": "Tasks Count",
+    "createdBy": "Created By",
+    "createdAt": "Created At",
+    "updatedAt": "Updated At"
+  },
+  "statusOptions": {
+    "ACTIVE": "Active",
+    "INACTIVE": "Inactive"
+  },
+  "tabs": {
+    "stageOverview": "General Info",
+    "stageTasks": "Tasks in Stage"
+  }
+}

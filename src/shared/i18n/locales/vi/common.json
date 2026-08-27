@@ -1,0 +1,76 @@
+﻿{
+  "nav": {
+    "dashboard": "Tổng quan",
+    "users": "Người dùng",
+    "products": "Sản phẩm",
+    "analytics": "Thống kê",
+    "settings": "Cài đặt"
+  },
+  "actions": {
+    "save": "Lưu",
+    "cancel": "Hủy",
+    "delete": "Xóa",
+    "edit": "Chỉnh sửa",
+    "create": "Tạo mới",
+    "confirm": "Xác nhận",
+    "search": "Tìm kiếm",
+    "backHome": "Về trang chủ",
+    "add": "Thêm mới"
+  },
+  "status": {
+    "active": "Hoạt động",
+    "inactive": "Không hoạt động"
+  },
+  "loading": "Đang xử lý...",
+  "errors": {
+    "occurred": "Đã xảy ra lỗi",
+    "unknown": "Lỗi không xác định",
+    "notFound": "Trang không tồn tại"
+  },
+  "dashboard": {
+    "totalUsers": "Tổng users",
+    "orders": "Đơn hàng",
+    "revenue": "Doanh thu",
+    "growth": "Tăng trưởng",
+    "pageTitle": "Trang chủ",
+    "viewPendingTasks": "Xem nhiệm vụ cần xử lý",
+    "exportReport": "Xuất báo cáo",
+    "taskList": "Danh sách nhiệm vụ",
+    "noTasks": "Không tìm thấy nhiệm vụ",
+    "notifications": "Thông báo",
+    "viewMoreNotifications": "Xem thêm thông báo",
+    "workCount": "Công việc: {{count}}",
+    "viewMore": "Xem thêm",
+    "quickAccess": "Truy cập nhanh"
+  },
+  "footer": {
+    "sourceNote": "Ghi rõ nguồn xyz.vn, abc.gov.vn khi phát hành lại thông tin từ Cục Đo lường – Tiêu chuẩn – Chất lượng",
+    "nav": {
+      "home": "Trang chủ",
+      "business": "Nghiệp vụ",
+      "reports": "Tra cứu và báo cáo"
+    },
+    "orgName": "Cục Đo lường - Tiêu chuẩn - Chất lượng",
+    "address": "Địa chỉ: Số 11, Phố Hoàng Sâm, Phường Nghĩa Đô, TP.Hà Nội — Tel: +84.xx.yy.zzzz — Email: info@xyz.gov.vn",
+    "website": "Website: xyz.vn, abc.gov.vn",
+    "decree": "Quyết định số 3548/QĐ-BQP ngày 25/9/2012"
+  },
+  "messages": {
+    "createSuccess": "Tạo mới thành công",
+    "updateSuccess": "Cập nhật thành công",
+    "deleteSuccess": "Xóa thành công",
+    "deleteConfirm": "Bạn có chắc chắn muốn xóa?"
+  },
+  "certStandard": {
+    "relatedDocuments": {
+      "documentList": "Danh sách văn bản",
+      "activeDocuments": "Hồ sơ đang xử lý",
+      "pendingDocuments": "Chờ xử lý",
+      "overdueDocuments": "Quá hạn/Làm lại",
+      "myDocumentTasks": "Việc của tôi"
+    }
+  },
+  "loadingData": "Đang tải dữ liệu",
+  "noData": "Không có dữ liệu",
+  "search": "TÌm kiếm"
+}

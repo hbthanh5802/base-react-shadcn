@@ -1,0 +1,9 @@
+const prefixQueryKey = {
+  QUALITY_MANAGEMENT: 'QUALITY_MANAGEMENT',
+};
+
+export const qualityManagementQueryKey = {
+  ACTIVITY_HISTORY: `${prefixQueryKey.QUALITY_MANAGEMENT}_ACTIVITY_HISTORY`,
+  CASE_LIST: `${prefixQueryKey.QUALITY_MANAGEMENT}_CASE_LIST`,
+  STATUS_STATISTIC: `${prefixQueryKey.QUALITY_MANAGEMENT}_STATUS_STATISTIC`,
+};

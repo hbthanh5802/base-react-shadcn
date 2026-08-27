@@ -1,0 +1,103 @@
+{
+  "title": "Workflow",
+  "breadcrumb": {
+    "admin": "Admin Portal"
+  },
+  "actions": {
+    "import": "Import",
+    "export": "Export",
+    "add": "Thêm mới",
+    "filter": "Bộ lọc",
+    "view": "Xem",
+    "edit": "Chỉnh sửa",
+    "delete": "Xóa",
+    "close": "Đóng",
+    "confirm": "Đồng ý",
+    "saving": "Đang lưu...",
+    "cancel": "Huỷ",
+    "save": "Lưu",
+    "back": "Quay lại danh sách"
+  },
+  "table": {
+    "title": "Danh sách dữ liệu",
+    "stageTitle": "Danh sách các bước trong quy trình",
+    "taskTitle": "Danh sách nhiệm vụ"
+  },
+  "toast": {
+    "importComingSoon": "Import: chức năng đang phát triển",
+    "exportComingSoon": "Export: chức năng đang phát triển",
+    "openFilter": "Mở bộ lọc nâng cao",
+    "deleted": "Xóa {{code}}",
+    "created": "Đã thêm mới {{code}}",
+    "updated": "Đã cập nhật {{code}}",
+    "error": "Có lỗi xảy ra, vui lòng thử lại",
+    "displayOrderDuplicated": "Thứ tự hiển thị đã tồn tại trong quy trình",
+    "notFoundTitle": "Không tìm thấy thông tin",
+    "notFoundDesc": "Không tìm thấy quy trình yêu cầu hoặc quy trình đã bị xóa khỏi hệ thống."
+  },
+  "modal": {
+    "createTitle": "Thêm mới",
+    "editTitle": "Chỉnh sửa",
+    "viewTitle": "Xem chi tiết",
+    "createTaskTitle": "Thêm mới nhiệm vụ trong giai đoạn"
+  },
+  "fields": {
+    "moduleCode": "Mã phân hệ",
+    "moduleName": "Tên phân hệ",
+    "department": "Đơn vị",
+    "process": "Quy trình",
+    "status": "Trạng thái",
+    "createdBy": "Người tạo",
+    "createdAt": "Ngày tạo",
+    "actions": "Hành động",
+    "index": "STT",
+    "workflowName": "Tên quy trình",
+    "workflowCode": "Mã quy trình",
+    "stageCount": "Số bước trong workflow",
+    "module": "Phân hệ",
+    "processCorresponding": "Quy trình tương ứng",
+    "allowAutoComplete": "Tự động hoàn thành hồ sơ khi tất cả các bước đã xong",
+    "updatedBy": "Người cập nhật",
+    "updatedAt": "Ngày cập nhật",
+    "stageCode": "Ký hiệu",
+    "stageName": "Tên giai đoạn",
+    "displayOrder": "Thứ tự hiển thị",
+    "isEnd": "Tự động hoàn thành và chuyển tiếp khi tất cả các nhiệm vụ đã xong",
+    "description": "Mô tả",
+    "docChecklistName": "Tên nhóm tài liệu",
+    "docChecklistSource": "Nguồn",
+    "docChecklistItems": "Tài liệu theo nhóm",
+    "docChecklistItemCode": "Mã tài liệu",
+    "docChecklistItemName": "Tên tài liệu",
+    "docChecklistItemSource": "Nguồn"
+  },
+  "statusOptions": {
+    "ACTIVE": "Hoạt động",
+    "INACTIVE": "Không hoạt động"
+  },
+  "tabs": {
+    "overview": "Thông tin chung",
+    "steps": "Giai đoạn",
+    "stageOverview": "Thông tin chung",
+    "stageTasks": "Nhiệm vụ trong giai đoạn",
+    "docChecklist": "Tài liệu cần có"
+  },
+  "docChecklist": {
+    "title": "Tài liệu cần có",
+    "code": "Mã nhóm tài liệu",
+    "name": "Tên nhóm tài liệu",
+    "source": "Nguồn",
+    "items": "Tài liệu theo nhóm",
+    "itemCode": "Mã tài liệu",
+    "itemName": "Tên tài liệu",
+    "itemSource": "Nguồn",
+    "placeholder": {
+      "code": "Nhập mã nhóm tài liệu",
+      "name": "Tên nhóm tài liệu",
+      "source": "Nguồn",
+      "itemCode": "Nhập mã tài liệu",
+      "itemName": "Nhập tên tài liệu",
+      "itemSource": "Nhập nguồn tải lên"
+    }
+  }
+}

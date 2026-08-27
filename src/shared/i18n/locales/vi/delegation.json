@@ -1,0 +1,70 @@
+{
+  "title": "Ủy quyền",
+  "breadcrumb": {
+    "admin": "Admin Portal"
+  },
+  "actions": {
+    "import": "Import",
+    "export": "Export",
+    "add": "Thêm mới",
+    "filter": "Bộ lọc",
+    "view": "Xem",
+    "edit": "Chỉnh sửa",
+    "delete": "Xóa",
+    "close": "Đóng",
+    "confirm": "Đồng ý",
+    "saving": "Đang lưu..."
+  },
+  "stats": {
+    "totalConfigs": "Tổng cấu hình",
+    "activeConfigs": "Đang hiệu lực",
+    "draftConfigs": "Draft/Chờ duyệt",
+    "warnings": "Cảnh báo"
+  },
+  "table": {
+    "title": "Danh sách dữ liệu",
+    "columns": {
+      "index": "STT",
+      "code": "Mã",
+      "name": "Tên",
+      "scope": "Phạm vi/Module",
+      "status": "Trạng thái",
+      "updatedBy": "Cập nhật bởi",
+      "updatedAt": "Ngày cập nhật",
+      "actions": "Hành động"
+    }
+  },
+  "status": {
+    "ACTIVE": "Hoạt động",
+    "DRAFT": "Nháp",
+    "INACTIVE": "Không hoạt động"
+  },
+  "fields": {
+    "code": "Mã",
+    "name": "Tên",
+    "scope": "Phạm vi/Module",
+    "status": "Trạng thái",
+    "updatedBy": "Cập nhật bởi",
+    "updatedAt": "Ngày cập nhật"
+  },
+  "detail": {
+    "title": "Xem chi tiết ủy quyền"
+  },
+  "form": {
+    "createTitle": "Thêm mới ủy quyền",
+    "editTitle": "Chỉnh sửa ủy quyền"
+  },
+  "empty": {
+    "title": "Không có kết quả",
+    "description": "Không tìm thấy ủy quyền phù hợp."
+  },
+  "toast": {
+    "importComingSoon": "Import: chức năng đang phát triển",
+    "exportComingSoon": "Export: chức năng đang phát triển",
+    "openFilter": "Mở bộ lọc nâng cao",
+    "deleted": "Xóa {{code}}",
+    "created": "Đã thêm mới {{code}}",
+    "updated": "Đã cập nhật {{code}}",
+    "error": "Có lỗi xảy ra, vui lòng thử lại"
+  }
+}

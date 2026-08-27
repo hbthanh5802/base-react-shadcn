@@ -1,0 +1,72 @@
+{
+  "title": "Business Tasks",
+  "breadcrumb": {
+    "admin": "Admin Portal"
+  },
+  "actions": {
+    "import": "Import",
+    "export": "Export",
+    "add": "Add New",
+    "filter": "Filter",
+    "view": "View",
+    "edit": "Edit",
+    "delete": "Delete",
+    "close": "Close",
+    "confirm": "Confirm",
+    "saving": "Saving..."
+  },
+  "table": {
+    "title": "Tasks List"
+  },
+  "toast": {
+    "importComingSoon": "Import: feature coming soon",
+    "exportComingSoon": "Export: feature coming soon",
+    "openFilter": "Open advanced filter",
+    "deleted": "Deleted {{code}}",
+    "created": "Successfully created {{code}}",
+    "updated": "Successfully updated {{code}}",
+    "error": "An error occurred, please try again",
+    "orderDuplicated": "Task order already exists",
+    "loadingData": "Loading task information..."
+  },
+  "modal": {
+    "createTitle": "Add New Task",
+    "editTitle": "Edit Task",
+    "viewTitle": "View Details"
+  },
+  "sections": {
+    "general": "General Information",
+    "position": "Position in Process",
+    "options": "Options",
+    "documentChecklistDefinitions": "Required Documents"
+  },
+  "fields": {
+    "code": "Task Code",
+    "name": "Task Name",
+    "module": "Module",
+    "process": "Process",
+    "taskType": "Task Type",
+    "status": "Status",
+    "createdBy": "Created By",
+    "updatedBy": "Updated By",
+    "createdAt": "Created At",
+    "updatedAt": "Updated At",
+    "actions": "Actions",
+    "index": "No.",
+    "allowSkipApproval": "No approval required on completion",
+    "description": "Description",
+    "stage": "Stage",
+    "displayOrder": "Order",
+    "isRequired": "Required execution",
+    "checklistCode": "Document Group Code",
+    "checklistName": "Document Group Name",
+    "sourceUpload": "Source",
+    "checklistCodePlaceholder": "Enter document group code",
+    "checklistNamePlaceholder": "Enter document name",
+    "sourceUploadPlaceholder": "Enter source"
+  },
+  "statusOptions": {
+    "ACTIVE": "Active",
+    "INACTIVE": "Inactive"
+  }
+}

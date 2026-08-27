@@ -1,0 +1,73 @@
+{
+  "title": "Nhiệm vụ",
+  "breadcrumb": {
+    "admin": "Admin Portal"
+  },
+  "actions": {
+    "import": "Import",
+    "export": "Export",
+    "add": "Thêm mới",
+    "filter": "Bộ lọc",
+    "view": "Xem",
+    "edit": "Chỉnh sửa",
+    "delete": "Xóa",
+    "close": "Đóng",
+    "confirm": "Đồng ý",
+    "saving": "Đang lưu..."
+  },
+  "table": {
+    "title": "Danh sách nhiệm vụ"
+  },
+  "toast": {
+    "importComingSoon": "Import: chức năng đang phát triển",
+    "exportComingSoon": "Export: chức năng đang phát triển",
+    "openFilter": "Mở bộ lọc nâng cao",
+    "deleted": "Xóa {{code}}",
+    "created": "Đã thêm mới {{code}}",
+    "updated": "Đã cập nhật {{code}}",
+    "error": "Có lỗi xảy ra, vui lòng thử lại",
+    "orderDuplicated": "Thứ tự thực hiện đã tồn tại",
+    "loadingData": "Đang tải thông tin nhiệm vụ..."
+  },
+  "modal": {
+    "createTitle": "Thêm mới nhiệm vụ",
+    "editTitle": "Chỉnh sửa nhiệm vụ",
+    "viewTitle": "Xem chi tiết"
+  },
+  "sections": {
+    "general": "Thông tin chung",
+    "position": "Vị trí trong quy trình",
+    "options": "Tùy chọn",
+    "documentChecklistDefinitions": "Tài liệu cần có"
+  },
+  "fields": {
+    "code": "Mã nhiệm vụ",
+    "name": "Tên nhiệm vụ",
+    "module": "Phân hệ",
+    "process": "Quy trình",
+    "taskType": "Loại nhiệm vụ",
+    "status": "Trạng thái",
+    "createdBy": "Người tạo",
+    "updatedBy": "Người cập nhật",
+    "createdAt": "Thời gian tạo",
+    "updatedAt": "Ngày cập nhật",
+    "actions": "Hành động",
+    "index": "STT",
+    "allowSkipApproval": "Không cần phê duyệt khi thực hiện xong",
+    "description": "Mô tả",
+    "stage": "Giai đoạn",
+    "displayOrder": "Thứ tự",
+    "isRequired": "Bắt buộc thực hiện",
+    "checklistCode": "Mã nhóm tài liệu",
+    "checklistName": "Tên nhóm tài liệu",
+    "sourceUpload": "Nguồn",
+    "checklistCodePlaceholder": "Nhập mã nhóm tài liệu",
+    "checklistNamePlaceholder": "Nhập tên nhóm tài liệu",
+    "sourceUploadPlaceholder": "Nhập nguồn tài liệu",
+    "actionsComingSoon": "Hành động đang phát triển"
+  },
+  "statusOptions": {
+    "ACTIVE": "Hiệu lực",
+    "INACTIVE": "Ngừng áp dụng"
+  }
+}

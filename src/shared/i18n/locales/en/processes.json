@@ -1,0 +1,59 @@
+{
+  "title": "Business Processes",
+  "breadcrumb": {
+    "admin": "Admin Portal"
+  },
+  "actions": {
+    "import": "Import",
+    "export": "Export",
+    "add": "Add New",
+    "filter": "Filter",
+    "view": "View",
+    "edit": "Edit",
+    "delete": "Delete",
+    "close": "Close",
+    "confirm": "Confirm",
+    "saving": "Saving..."
+  },
+  "stats": {
+    "totalConfigs": "Total Configs",
+    "activeConfigs": "Active",
+    "draftConfigs": "Draft/Pending",
+    "warnings": "Warnings"
+  },
+  "table": {
+    "title": "Data List"
+  },
+  "toast": {
+    "importComingSoon": "Import: feature coming soon",
+    "exportComingSoon": "Export: feature coming soon",
+    "openFilter": "Open advanced filter",
+    "deleted": "Deleted {{code}}",
+    "created": "Successfully created {{code}}",
+    "updated": "Successfully updated {{code}}",
+    "error": "An error occurred, please try again"
+  },
+  "modal": {
+    "createTitle": "Add New",
+    "editTitle": "Edit",
+    "viewTitle": "View Details"
+  },
+  "fields": {
+    "processCode": "Process Code",
+    "processName": "Process Name",
+    "department": "Department",
+    "status": "Status",
+    "description": "Description",
+    "module": "Business Module",
+    "routerPath": "Route path",
+    "route": "Route",
+    "createdBy": "Created By",
+    "createdAt": "Created At",
+    "actions": "Actions",
+    "index": "No."
+  },
+  "statusOptions": {
+    "ACTIVE": "Active",
+    "INACTIVE": "Inactive"
+  }
+}
