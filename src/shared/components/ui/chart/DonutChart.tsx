@@ -130,7 +130,7 @@ function renderCustomLabel(props: PieLabelProps) {
         dominantBaseline="central"
         style={{ fontFamily: 'inherit' }}
       >
-        <tspan x={xText} dy="-8" fill="#4B5563" fontSize={12} fontWeight={500}>
+        <tspan x={xText} dy="-8" fill="currentColor" className="fill-muted-foreground" fontSize={12} fontWeight={500}>
           {name}
         </tspan>
         <tspan x={xText} dy="18" fill={color} fontSize={12} fontWeight={600}>

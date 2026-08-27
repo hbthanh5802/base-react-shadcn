@@ -31,7 +31,7 @@ const Checkbox = React.forwardRef<React.ComponentRef<typeof CheckboxPrimitive.Ro
         className={cn(
           [
             rootSizeClasses,
-            'border transition-all duration-150 ease-out',
+            'border transition-all duration-150 ease-out cursor-pointer active:scale-90',
             'border-input bg-background text-primary-foreground',
             'data-[state=checked]:border-primary data-[state=checked]:bg-primary data-[state=checked]:text-primary-foreground',
             'data-[state=indeterminate]:border-primary data-[state=indeterminate]:bg-primary data-[state=indeterminate]:text-primary-foreground',

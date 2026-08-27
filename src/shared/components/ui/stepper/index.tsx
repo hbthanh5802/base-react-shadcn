@@ -30,14 +30,14 @@ const CheckIcon = () => (
 const StepIndicator = ({ status, index }: { status: StepStatus; index: number }) => {
   if (status === 'completed') {
     return (
-      <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-primary-600 text-neutral-0">
+      <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-primary text-primary-foreground shadow-xs">
         <CheckIcon />
       </span>
     );
   }
   if (status === 'active') {
     return (
-      <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border-2 border-primary-600 bg-background text-body-2-sb text-primary-600 shadow-focus-ring">
+      <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border-2 border-primary bg-background text-body-2-sb text-primary shadow-[0_0_0_3px_rgb(5_150_105_/_0.15)]">
         {index + 1}
       </span>
     );
@@ -70,8 +70,8 @@ const Stepper = React.forwardRef<HTMLDivElement, StepperProps>(
                   {!isLast && (
                     <div
                       className={cn(
-                        'mt-1 min-h-[24px] w-0.5 flex-1',
-                        status === 'completed' ? 'bg-primary-600' : 'bg-border',
+                        'mt-1 min-h-[24px] w-0.5 flex-1 transition-colors duration-200',
+                        status === 'completed' ? 'bg-primary' : 'bg-border',
                       )}
                     />
                   )}
@@ -125,8 +125,8 @@ const Stepper = React.forwardRef<HTMLDivElement, StepperProps>(
                 {!isLast && (
                   <div
                     className={cn(
-                      'mx-2 mt-4 h-0.5 flex-1',
-                      status === 'completed' ? 'bg-primary-600' : 'bg-border',
+                      'mx-2 mt-4 h-0.5 flex-1 transition-colors duration-200',
+                      status === 'completed' ? 'bg-primary' : 'bg-border',
                     )}
                   />
                 )}

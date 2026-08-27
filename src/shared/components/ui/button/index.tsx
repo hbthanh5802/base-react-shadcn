@@ -5,14 +5,14 @@ import * as React from 'react';
 import { cn } from '@/shared/lib/utils';
 
 const buttonVariants = cva(
-  'inline-flex shrink-0 items-center justify-center whitespace-nowrap transition-colors duration-150 ease-out [&_svg]:shrink-0 [&_svg]:text-current [&_svg]:[stroke-width:2.2] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-background disabled:pointer-events-none disabled:opacity-50 select-none',
+  'inline-flex shrink-0 items-center justify-center whitespace-nowrap transition-all duration-150 ease-out active:scale-[0.98] [&_svg]:shrink-0 [&_svg]:text-current [&_svg]:[stroke-width:2.2] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-background disabled:pointer-events-none disabled:opacity-50 select-none cursor-pointer',
   {
     variants: {
       variant: {
         default:
-          'border border-transparent bg-primary-600 !text-white hover:bg-primary-700 active:bg-primary-800 focus-visible:ring-primary-600 data-[ui-hover=true]:bg-primary-700 data-[ui-pressed=true]:bg-primary-800 data-[ui-focus=true]:ring-2 data-[ui-focus=true]:ring-primary-600 disabled:bg-muted disabled:!text-muted-foreground',
+          'border border-transparent bg-primary text-primary-foreground shadow-xs hover:bg-primary/90 active:bg-primary/95 focus-visible:ring-primary data-[ui-hover=true]:bg-primary/90 data-[ui-pressed=true]:bg-primary/95 data-[ui-focus=true]:ring-2 data-[ui-focus=true]:ring-primary disabled:bg-muted disabled:!text-muted-foreground',
         destructive:
-          'border border-transparent bg-destructive text-destructive-foreground hover:bg-destructive/90 active:bg-destructive/80 focus-visible:ring-destructive disabled:bg-muted disabled:!text-muted-foreground',
+          'border border-transparent bg-destructive text-destructive-foreground shadow-xs hover:bg-destructive/90 active:bg-destructive/80 focus-visible:ring-destructive disabled:bg-muted disabled:!text-muted-foreground',
         outline:
           'rounded-lg border border-border bg-background text-foreground hover:bg-muted focus-visible:ring-primary data-[ui-hover=true]:bg-muted data-[ui-pressed=true]:bg-muted/80 data-[ui-focus=true]:ring-2 data-[ui-focus=true]:ring-primary disabled:border-border disabled:bg-muted/50 disabled:!text-muted-foreground',
         outlinePrimary:
@@ -20,7 +20,7 @@ const buttonVariants = cva(
         secondary:
           'rounded-lg border border-transparent bg-secondary text-secondary-foreground hover:bg-secondary/80 focus-visible:ring-primary data-[ui-hover=true]:bg-secondary/80 data-[ui-pressed=true]:bg-secondary/70 data-[ui-focus=true]:ring-2 data-[ui-focus=true]:ring-primary disabled:bg-muted disabled:!text-muted-foreground',
         secondPrimary:
-          'rounded-lg border border-transparent bg-primary-50 text-primary-600 hover:bg-primary-100 active:bg-primary-150 focus-visible:ring-primary-600 data-[ui-hover=true]:bg-primary-100 data-[ui-pressed=true]:bg-primary-150 data-[ui-focus=true]:ring-2 data-[ui-focus=true]:ring-primary-600 disabled:bg-muted disabled:!text-muted-foreground dark:bg-primary-950/50 dark:text-primary-400 dark:hover:bg-primary-900 dark:disabled:bg-muted',
+          'rounded-lg border border-transparent bg-primary-50 text-primary hover:bg-primary-100 active:bg-primary-150 focus-visible:ring-primary data-[ui-hover=true]:bg-primary-100 data-[ui-pressed=true]:bg-primary-150 data-[ui-focus=true]:ring-2 data-[ui-focus=true]:ring-primary disabled:bg-muted disabled:!text-muted-foreground dark:bg-primary-950/50 dark:text-primary-400 dark:hover:bg-primary-900 dark:disabled:bg-muted',
         ghost:
           'rounded-lg border border-transparent bg-transparent text-foreground hover:bg-accent hover:text-accent-foreground focus-visible:ring-primary data-[ui-hover=true]:bg-accent data-[ui-pressed=true]:bg-accent/80 data-[ui-focus=true]:ring-2 data-[ui-focus=true]:ring-primary disabled:!text-muted-foreground',
         text: 'rounded-lg border border-transparent bg-transparent text-primary hover:bg-primary-50 active:bg-primary-100 data-[ui-hover=true]:bg-primary-50 data-[ui-pressed=true]:bg-primary-100 focus-visible:ring-primary data-[ui-focus=true]:ring-2 data-[ui-focus=true]:ring-primary disabled:!text-muted-foreground dark:hover:bg-primary-950/40',

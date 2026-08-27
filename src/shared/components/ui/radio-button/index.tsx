@@ -19,7 +19,7 @@ const RadioButton = React.forwardRef<
     ref={ref}
     className={cn(
       [
-        'peer h-6 w-6 shrink-0 rounded-full border-2 border-neutral-400 dark:border-neutral-600 bg-background text-primary transition-all duration-150 ease-out',
+        'peer h-6 w-6 shrink-0 rounded-full border-2 border-neutral-400 dark:border-neutral-600 bg-background text-primary transition-all duration-150 ease-out cursor-pointer active:scale-90',
         'data-[state=checked]:border-primary',
         'hover:border-primary-500 hover:shadow-[0_0_0_3px_rgb(5_150_105_/_0.15)]',
         'active:border-primary-700 active:shadow-[0_0_0_3px_rgb(5_150_105_/_0.25)]',

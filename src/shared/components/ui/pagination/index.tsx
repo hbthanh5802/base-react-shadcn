@@ -200,7 +200,7 @@ export const Pagination = ({
               <span className="whitespace-nowrap text-body-2-rg text-muted-foreground">
                 {t('pagination.goToPage')}
               </span>
-              <div className="flex h-9 overflow-hidden rounded-lg border border-border bg-background transition-colors focus-within:border-primary-600">
+              <div className="flex h-9 overflow-hidden rounded-lg border border-border bg-background transition-colors focus-within:border-primary focus-within:ring-2 focus-within:ring-primary/20">
                 <input
                   type="text"
                   inputMode="numeric"
@@ -215,7 +215,7 @@ export const Pagination = ({
                   type="button"
                   aria-label={t('pagination.goToPageAriaLabel')}
                   onClick={applyGoto}
-                  className="flex h-full w-8 shrink-0 items-center justify-center text-muted-foreground transition-colors hover:text-foreground"
+                  className="flex h-full w-8 shrink-0 items-center justify-center text-muted-foreground transition-colors hover:text-foreground hover:bg-muted/50"
                 >
                   <IconArrowRight />
                 </button>
@@ -274,7 +274,7 @@ export const Pagination = ({
                   className={cn(
                     numBtnBase,
                     item === safePage
-                      ? 'border-primary-600 bg-primary-600 text-white shadow-sm'
+                      ? 'border-primary bg-primary text-primary-foreground font-semibold shadow-xs'
                       : 'border-transparent bg-transparent text-muted-foreground hover:bg-muted',
                   )}
                   onClick={() => onPageChange(item)}

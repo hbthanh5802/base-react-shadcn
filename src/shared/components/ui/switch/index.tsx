@@ -15,7 +15,7 @@ const Switch = React.forwardRef<React.ComponentRef<typeof SwitchPrimitive.Root>,
       ref={ref}
       className={cn(
         [
-          'peer inline-flex h-6 w-10 shrink-0 items-center rounded-full border border-transparent transition-all duration-150 ease-out',
+          'peer inline-flex h-6 w-10 shrink-0 items-center rounded-full border border-transparent transition-all duration-150 ease-out cursor-pointer active:scale-95',
           'bg-input data-[state=checked]:bg-primary',
           'hover:shadow-[0_0_0_3px_rgb(5_150_105_/_0.15)]',
           'active:shadow-[0_0_0_3px_rgb(5_150_105_/_0.2)] active:data-[state=checked]:bg-primary-800 active:data-[state=unchecked]:bg-neutral-300',
