@@ -197,6 +197,15 @@ export const DevComponentsPage = () => {
             </p>
           </Link>
 
+          <Link to="/dev/tree-view" className={cardClass}>
+            <h3 className="text-title-2 font-semibold text-foreground group-hover:text-primary transition-colors">
+              Tree View (Cây Phân Cấp)
+            </h3>
+            <p className="text-body-2-rg text-muted-foreground mt-1">
+              Cây phân cấp dữ liệu: Async Lazy Loading từ Backend, Checkbox Cascade đa cấp, tìm kiếm và TreeSelect.
+            </p>
+          </Link>
+
           <Link to="/dev/dialog" className={cardClass}>
             <h3 className="text-title-2 font-semibold text-foreground group-hover:text-primary transition-colors">
               Dialog (Raw Primitives)

@@ -48,6 +48,7 @@ export const NAV_GROUPS: NavGroup[] = [
       { key: 'dev-breadcrumb', to: '/dev/breadcrumb', label: 'Breadcrumb' },
       { key: 'dev-tabs', to: '/dev/tabs', label: 'Tabs' },
       { key: 'dev-stepper', to: '/dev/stepper', label: 'Stepper' },
+      { key: 'dev-tree-view', to: '/dev/tree-view', label: 'Tree View (Cây phân cấp)' },
     ],
   },
   {
