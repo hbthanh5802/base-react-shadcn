@@ -234,6 +234,15 @@ export const DevComponentsPage = () => {
             </p>
           </Link>
 
+          <Link to="/dev/surface" className={cardClass}>
+            <h3 className="text-title-2 font-semibold text-foreground group-hover:text-primary transition-colors">
+              Surface (Div Nâng cao)
+            </h3>
+            <p className="text-body-2-rg text-muted-foreground mt-1">
+              Khung chứa đa tầng (Base, Card, Subtle, Inset, Elevated) hỗ trợ Dark/Light Mode tự động.
+            </p>
+          </Link>
+
           <Link to="/dev/notification" className={cardClass}>
             <h3 className="text-title-2 font-semibold text-foreground group-hover:text-primary transition-colors">
               Notification / Toast

@@ -58,6 +58,7 @@ export const NAV_GROUPS: NavGroup[] = [
       { key: 'dev-modal-dialog', to: '/dev/modal-dialog', label: 'Modal Dialog' },
       { key: 'dev-drawer', to: '/dev/drawer', label: 'Drawer & Sheet' },
       { key: 'dev-card', to: '/dev/card', label: 'Card' },
+      { key: 'dev-surface', to: '/dev/surface', label: 'Surface (Div Nâng cao)' },
       { key: 'dev-notification', to: '/dev/notification', label: 'Notification / Toast' },
       { key: 'dev-tooltip', to: '/dev/tooltip', label: 'Tooltip' },
       { key: 'dev-avatar', to: '/dev/avatar', label: 'Avatar' },
