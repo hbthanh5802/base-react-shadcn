@@ -22,9 +22,11 @@ export const Header: React.FC = () => {
           icon={<HambergerMenu size={22} />}
         />
         <Link to="/dashboard" className="flex items-center gap-2.5">
-          <div className="flex size-8 items-center justify-center rounded-lg bg-primary text-primary-foreground font-bold text-sm">
-            B
-          </div>
+          <img
+            src="/app-icon/apple-icon-180x180.png"
+            alt="Base Starter"
+            className="size-8 rounded-lg object-cover shadow-2xs"
+          />
           <span className="font-semibold text-foreground text-body-1-sb">Base Starter</span>
         </Link>
       </div>
