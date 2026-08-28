@@ -297,7 +297,7 @@ export default {
         md: '0 4px 6px -2px rgba(16,24,40,0.03), 0 12px 16px -4px rgba(16,24,40,0.08)',
         lg: '0 12px 16px -4px rgba(16,24,40,0.08), 0 4px 6px -2px rgba(16,24,40,0.03)',
         xl: '0 20px 24px -4px rgba(16,24,40,0.08), 0 8px 8px -4px rgba(16,24,40,0.03)',
-        'focus-ring': '0 0 0 4px rgba(238,0,51,0.12)',
+        'focus-ring': '0 0 0 4px rgba(5,150,105,0.12)',
       },
     },
   },

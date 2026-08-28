@@ -13,7 +13,7 @@ Dự án frontend cơ sở (**Clean Frontend Boilerplate**) hoàn chỉnh, chu�
 5. [🔐 Mock Authentication & Kết nối Backend](#-mock-authentication--kết-nối-backend)
 6. [🛣️ Quản lý Router & Phân quyền (Protected Routes)](#️-quản-lý-router--phân-quyền-protected-routes)
 7. [📝 Hướng dẫn sử dụng Form Engine (RHF + Zod)](#-hướng-dẫn-sử-dụng-form-engine-rhf--zod)
-8. [📊 Hướng dẫn sử dụng Bảng dữ liệu (TanStack Table)](#-hướng-dẫn-sử-dụng-bảng-dữ-liệu-tanstack-table)
+8. [📊 Hướng dẫn sử dụng TanStack Table](#-hướng-dẫn-sử-dụng-bảng-dữ-liệu-tanstack-table)
 9. [📁 Cấu trúc thư mục](#-cấu-trúc-thư-mục)
 
 ---
@@ -35,17 +35,21 @@ Dự án frontend cơ sở (**Clean Frontend Boilerplate**) hoàn chỉnh, chu�
 ## 🚀 Hướng dẫn khởi chạy
 
 ### 1. Cài đặt dependencies
+
 ```bash
 npm install
 ```
 
 ### 2. Chạy môi trường Development
+
 ```bash
 npm run dev
 ```
+
 Ứng dụng sẽ chạy tại: `http://localhost:3000`
 
 ### 3. Kiểm tra kiểu dữ liệu (Type check) & Build Production
+
 ```bash
 # Kiểm tra TypeScript
 npm run type-check
@@ -64,11 +68,13 @@ npm run preview
 Dự án hỗ trợ 3 chế độ: `light` (Sáng), `dark` (Tối), và `system` (Tự động theo hệ điều hành).
 
 ### Cách hoạt động
+
 1. **Lưu trữ**: Trạng thái Theme được lưu trong `localStorage` qua Zustand store (`useUIStore`).
 2. **Provider**: `ThemeProvider` trong `src/shared/components/theme-provider.tsx` sẽ tự động thêm/xóa class `.dark` tại thẻ `<html>`.
 3. **CSS Variables**: Các màu sắc nền, chữ, viền sẽ tự động thay đổi theo biến CSS tương ứng khi class `.dark` được kích hoạt.
 
 ### Cách sử dụng Hook `useTheme` trong Component
+
 ```tsx
 import { useTheme } from '@/shared/components/theme-provider';
 
@@ -90,24 +96,25 @@ export const MyComponent = () => {
 Hệ thống màu được đồng bộ giữa **CSS Variables (src/index.css)** và **Tailwind Config (tailwind.config.ts)**.
 
 ### 1. Cấu trúc màu trong `src/index.css`
+
 Được định nghĩa dưới dạng HSL (không có dấu phẩy) để hỗ trợ tính năng thay đổi độ trong suốt `bg-primary/80` của Tailwind:
 
 ```css
 @layer base {
   :root {
     /* Chế độ Sáng */
-    --background: 0 0% 97.6%;       /* Màu nền trang */
-    --foreground: 0 0% 6%;          /* Màu chữ chính */
-    --card: 0 0% 100%;              /* Màu nền thẻ Card */
-    --border: 0 0% 87%;             /* Màu đường viền */
-    --primary: 349 100% 47%;        /* Màu chủ đạo (Brand Color) */
+    --background: 0 0% 97.6%; /* Màu nền trang */
+    --foreground: 0 0% 6%; /* Màu chữ chính */
+    --card: 0 0% 100%; /* Màu nền thẻ Card */
+    --border: 0 0% 87%; /* Màu đường viền */
+    --primary: 349 100% 47%; /* Màu chủ đạo (Brand Color) */
     --primary-foreground: 0 0% 100%;
   }
 
   .dark {
     /* Chế độ Tối */
-    --background: 0 0% 6%;          /* Màu nền tối */
-    --foreground: 0 0% 98%;         /* Màu chữ sáng */
+    --background: 0 0% 6%; /* Màu nền tối */
+    --foreground: 0 0% 98%; /* Màu chữ sáng */
     --card: 0 0% 10%;
     --border: 0 0% 23%;
     --primary: 349 100% 47%;
@@ -117,15 +124,19 @@ Hệ thống màu được đồng bộ giữa **CSS Variables (src/index.css)**
 ```
 
 ### 2. Cấu trúc màu trong `tailwind.config.ts`
+
 Chứa các dải màu từ `25` đến `950` cho các nhóm:
-- `primary`: Màu thương hiệu (mặc định là dải màu Đỏ tươi `#EE0033`).
+
+- `primary`: Màu thương hiệu (mặc định là dải màu Xanh Emerald `#059669`).
 - `neutral`: Màu xám trung tính cho text, border, surface.
 - `success` (Xanh lá), `warning` (Cam vàng), `error` / `destructive` (Đỏ).
 
 ### 3. Hướng dẫn đổi màu chủ đạo (Ví dụ: Đổi sang Xanh Dương `#0066FF`)
 
 #### Bước 1: Sửa biến `--primary` trong `src/index.css`
+
 Chuyển mã Hex `#0066FF` sang HSL (`216 100% 50%`):
+
 ```css
 /* src/index.css */
 :root {
@@ -139,6 +150,7 @@ Chuyển mã Hex `#0066FF` sang HSL (`216 100% 50%`):
 ```
 
 #### Bước 2: Cập nhật dải màu `primary` trong `tailwind.config.ts`
+
 ```ts
 // tailwind.config.ts
 const primary = {
@@ -162,11 +174,14 @@ const primary = {
 ## 🔐 Mock Authentication & Kết nối Backend
 
 ### 1. Mock Auth (Hiện tại)
+
 Trạng thái xác thực được quản lý tại `src/shared/stores/auth.store.ts`:
+
 - Hàm `loginMock({ username, role })`: Tự động tạo token giả lập và phân quyền (`SYSTEM_ADMIN` hoặc `USER`).
 - Hàm `logout()`: Xóa sạch session và đưa người dùng về trang `/login`.
 
 ### 2. Chuyển đổi sang Backend API thật
+
 Khi có API Backend, bạn chỉ cần thực hiện 2 bước:
 
 1. **Cập nhật URL API**: Đổi `VITE_API_URL` trong file `.env`:
@@ -184,7 +199,7 @@ Khi có API Backend, bạn chỉ cần thực hiện 2 bước:
        refreshToken: res.data.refreshToken,
        isAuthenticated: true,
      });
-   }
+   };
    ```
    > 💡 **Lưu ý**: File `src/shared/lib/axios.ts` đã được cấu hình sẵn Interceptor để tự động đính kèm `Authorization: Bearer <accessToken>` vào tất cả request và tự động logout khi nhận HTTP `401 Unauthorized`.
 
@@ -195,6 +210,7 @@ Khi có API Backend, bạn chỉ cần thực hiện 2 bước:
 Cấu hình Router tập trung tại `src/app/router.tsx`.
 
 ### Cách thêm một Trang mới có bảo vệ:
+
 ```tsx
 // src/app/router.tsx
 {
@@ -219,11 +235,18 @@ Và thêm liên kết vào menu tại `src/layouts/components/Sidebar.tsx`.
 Template tích hợp sẵn Form Engine mạnh mẽ, type-safe giữa **React Hook Form** và **Zod**.
 
 ### Ví dụ tạo Form:
+
 ```tsx
 import { z } from 'zod';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { Form, TextField, SelectField, DateField, CheckboxField } from '@/shared/components/form';
+import {
+  Form,
+  TextField,
+  SelectField,
+  DateField,
+  CheckboxField,
+} from '@/shared/components/form';
 import { Button } from '@/shared/components/ui/button';
 
 // 1. Khai báo Schema Validate
@@ -249,8 +272,18 @@ export const CreateUserForm = () => {
 
   return (
     <Form form={form} onSubmit={onSubmit} className="space-y-4 max-w-md">
-      <TextField<UserFormValues> name="fullName" label="Họ và tên" placeholder="Nguyễn Văn A" required />
-      <TextField<UserFormValues> name="email" label="Email" placeholder="example@domain.com" required />
+      <TextField<UserFormValues>
+        name="fullName"
+        label="Họ và tên"
+        placeholder="Nguyễn Văn A"
+        required
+      />
+      <TextField<UserFormValues>
+        name="email"
+        label="Email"
+        placeholder="example@domain.com"
+        required
+      />
       <SelectField<UserFormValues>
         name="role"
         label="Vai trò"
@@ -261,9 +294,14 @@ export const CreateUserForm = () => {
         required
       />
       <DateField<UserFormValues> name="birthDate" label="Ngày sinh" />
-      <CheckboxField<UserFormValues> name="isActive" label="Kích hoạt tài khoản ngay" />
+      <CheckboxField<UserFormValues>
+        name="isActive"
+        label="Kích hoạt tài khoản ngay"
+      />
 
-      <Button type="submit" variant="default">Lưu thông tin</Button>
+      <Button type="submit" variant="default">
+        Lưu thông tin
+      </Button>
     </Form>
   );
 };
@@ -271,11 +309,12 @@ export const CreateUserForm = () => {
 
 ---
 
-## 📊 Hướng dẫn sử dụng Bảng dữ liệu (TanStack Table)
+## 📊 Hướng dẫn sử dụng TanStack Table
 
 Template hỗ trợ component `TanstackTable` mạnh mẽ với phân trang, tìm kiếm và sắp xếp.
 
 ### Ví dụ tạo Table:
+
 ```tsx
 import { type ColumnDef } from '@tanstack/react-table';
 import { TanstackTable } from '@/shared/components/ui/tanstack-table';
@@ -354,10 +393,11 @@ base-template/
 ## 🎯 Danh sách trang Demo UI Components có sẵn
 
 Khởi chạy dự án và truy cập thanh menu bên trái để xem cách sử dụng thực tế của từng component:
+
 - **Tất cả components**: `/dev`
 - **Nút bấm (Buttons)**: `/dev/button`
 - **Form & Input Fields**: `/dev/form`
-- **Bảng dữ liệu (TanStack Table)**: `/dev/tanstack-table`
+- **TanStack Table**: `/dev/tanstack-table`
 - **Hộp thoại (Dialog / Modal)**: `/dev/dialog`
 - **Chọn ngày tháng (Date Picker)**: `/dev/date-picker`
 - **Huy hiệu (Badges)**: `/dev/badge`

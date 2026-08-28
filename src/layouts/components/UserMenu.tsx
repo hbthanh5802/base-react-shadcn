@@ -42,16 +42,24 @@ export const UserMenu: React.FC = () => {
             </AvatarFallback>
           </Avatar>
           <div className="hidden text-left md:block">
-            <p className="text-caption-1-sb text-foreground">{user?.fullName || 'Người dùng'}</p>
-            <p className="text-caption-2-rg text-muted-foreground">{user?.position || user?.roles?.[0] || 'User'}</p>
+            <p className="text-caption-1-sb text-foreground">
+              {user?.fullName || 'Người dùng'}
+            </p>
+            <p className="text-caption-2-rg text-muted-foreground">
+              {user?.position || user?.roles?.[0] || 'User'}
+            </p>
           </div>
         </button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end" className="w-56">
         <DropdownMenuLabel>
           <div className="flex flex-col space-y-1">
-            <p className="text-caption-1-sb text-foreground">{user?.fullName}</p>
-            <p className="text-caption-2-rg text-muted-foreground">{user?.email}</p>
+            <p className="text-caption-1-sb text-foreground">
+              {user?.fullName}
+            </p>
+            <p className="text-caption-2-rg text-muted-foreground">
+              {user?.email}
+            </p>
           </div>
         </DropdownMenuLabel>
         <DropdownMenuSeparator />
