@@ -236,10 +236,19 @@ export const DevComponentsPage = () => {
 
           <Link to="/dev/surface" className={cardClass}>
             <h3 className="text-title-2 font-semibold text-foreground group-hover:text-primary transition-colors">
-              Surface (Div Nâng cao)
+              Surface
             </h3>
             <p className="text-body-2-rg text-muted-foreground mt-1">
               Khung chứa đa tầng (Base, Card, Subtle, Inset, Elevated) hỗ trợ Dark/Light Mode tự động.
+            </p>
+          </Link>
+
+          <Link to="/dev/typography" className={cardClass}>
+            <h3 className="text-title-2 font-semibold text-foreground group-hover:text-primary transition-colors">
+              Typography
+            </h3>
+            <p className="text-body-2-rg text-muted-foreground mt-1">
+              Hệ thống kiểu chữ chuẩn hóa theo 8pt Design Token, hỗ trợ Copyable, Kbd, Code, Blockquote.
             </p>
           </Link>
 

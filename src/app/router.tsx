@@ -113,6 +113,10 @@ if (SHOW_DEV_ROUTES) {
     () => import('@/pages/dev/SurfaceDevPage'),
     'SurfaceDevPage',
   );
+  const TypographyDevPage = lazyNamed(
+    () => import('@/pages/dev/TypographyDevPage'),
+    'TypographyDevPage',
+  );
   devRoutes = [
     { path: 'dev', element: <Lazy><DevComponentsPage /></Lazy> },
     { path: 'dev/avatar', element: <Lazy><AvatarDevPage /></Lazy> },
@@ -121,6 +125,7 @@ if (SHOW_DEV_ROUTES) {
     { path: 'dev/button', element: <Lazy><ButtonDevPage /></Lazy> },
     { path: 'dev/card', element: <Lazy><CardDevPage /></Lazy> },
     { path: 'dev/surface', element: <Lazy><SurfaceDevPage /></Lazy> },
+    { path: 'dev/typography', element: <Lazy><TypographyDevPage /></Lazy> },
     { path: 'dev/chart', element: <Lazy><ChartDevPage /></Lazy> },
     { path: 'dev/checkbox', element: <Lazy><CheckboxDevPage /></Lazy> },
     { path: 'dev/chip', element: <Lazy><ChipDevPage /></Lazy> },
