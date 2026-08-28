@@ -23,13 +23,16 @@ const SelectTrigger = React.forwardRef<
       'flex h-11 w-full items-center justify-between rounded-lg border border-input bg-background px-3.5 text-sm font-medium text-foreground transition-all',
       'hover:border-primary-400 focus:outline-none focus-visible:border-primary focus-visible:ring-2 focus-visible:ring-primary/20',
       'disabled:cursor-not-allowed disabled:opacity-50 data-[placeholder]:text-muted-foreground',
-      error && 'border-error-600 focus-visible:border-error-600 focus-visible:ring-error-600/20',
+      error &&
+        'border-error-600 focus-visible:border-error-600 focus-visible:ring-error-600/20',
       'aria-invalid:border-error-600 aria-invalid:focus-visible:border-error-600 aria-invalid:focus-visible:ring-error-600/20',
       className,
     )}
     {...props}
   >
-    <span className={cn('text-left', displayValueClassName)}>{children}</span>
+    <span className={cn('text-left text-sm', displayValueClassName)}>
+      {children}
+    </span>
     <SelectPrimitive.Icon asChild>
       <ArrowDown2 className="h-4 w-4 shrink-0 text-muted-foreground transition-transform duration-200" />
     </SelectPrimitive.Icon>
@@ -69,7 +72,8 @@ const SelectScrollDownButton = React.forwardRef<
     <ArrowDown2 className="h-4 w-4" />
   </SelectPrimitive.ScrollDownButton>
 ));
-SelectScrollDownButton.displayName = SelectPrimitive.ScrollDownButton.displayName;
+SelectScrollDownButton.displayName =
+  SelectPrimitive.ScrollDownButton.displayName;
 
 const SelectContent = React.forwardRef<
   React.ComponentRef<typeof SelectPrimitive.Content>,
@@ -91,7 +95,8 @@ const SelectContent = React.forwardRef<
     ref,
   ) => {
     const resolvedSide = displayPosition === 'auto' ? side : displayPosition;
-    const resolvedAvoidCollisions = displayPosition === 'auto' ? avoidCollisions : false;
+    const resolvedAvoidCollisions =
+      displayPosition === 'auto' ? avoidCollisions : false;
 
     return (
       <SelectPrimitive.Portal>
@@ -135,7 +140,10 @@ const SelectLabel = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <SelectPrimitive.Label
     ref={ref}
-    className={cn('px-3 py-1.5 text-[11px] font-semibold uppercase tracking-wider text-muted-foreground', className)}
+    className={cn(
+      'px-3 py-2 text-xs font-semibold uppercase tracking-wider text-muted-foreground',
+      className,
+    )}
     {...props}
   />
 ));

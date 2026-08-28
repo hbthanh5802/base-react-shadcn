@@ -12,3 +12,4 @@ export { RadioGroupField } from './fields/radio-group-field';
 export { MultiSelectField } from './fields/multi-select-field';
 export { DateTimeField } from './fields/date-time-field';
 export { InputGlobalField } from './fields/input-global-field';
+export { ColorField } from './fields/color-field';
