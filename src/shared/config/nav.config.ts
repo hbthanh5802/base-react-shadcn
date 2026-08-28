@@ -37,6 +37,7 @@ export const NAV_GROUPS: NavGroup[] = [
       { key: 'dev-switch', to: '/dev/switch', label: 'Switch' },
       { key: 'dev-chip', to: '/dev/chip', label: 'Chip' },
       { key: 'dev-datepicker', to: '/dev/date-picker', label: 'Date & Time Picker' },
+      { key: 'dev-color-picker', to: '/dev/color-picker', label: 'Color Picker' },
     ],
   },
   {
@@ -48,7 +49,7 @@ export const NAV_GROUPS: NavGroup[] = [
       { key: 'dev-breadcrumb', to: '/dev/breadcrumb', label: 'Breadcrumb' },
       { key: 'dev-tabs', to: '/dev/tabs', label: 'Tabs' },
       { key: 'dev-stepper', to: '/dev/stepper', label: 'Stepper' },
-      { key: 'dev-tree-view', to: '/dev/tree-view', label: 'Tree View (Cây phân cấp)' },
+      { key: 'dev-tree-view', to: '/dev/tree-view', label: 'Tree View' },
     ],
   },
   {

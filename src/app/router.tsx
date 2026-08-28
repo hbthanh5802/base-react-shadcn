@@ -121,6 +121,10 @@ if (SHOW_DEV_ROUTES) {
     () => import('@/pages/dev/TreeViewDevPage'),
     'TreeViewDevPage',
   );
+  const ColorPickerDevPage = lazyNamed(
+    () => import('@/pages/dev/ColorPickerDevPage'),
+    'ColorPickerDevPage',
+  );
   devRoutes = [
     { path: 'dev', element: <Lazy><DevComponentsPage /></Lazy> },
     { path: 'dev/avatar', element: <Lazy><AvatarDevPage /></Lazy> },
@@ -160,6 +164,7 @@ if (SHOW_DEV_ROUTES) {
     { path: 'dev/tooltip', element: <Lazy><TooltipDevPage /></Lazy> },
     { path: 'dev/infinite-scroll', element: <Lazy><InfiniteScrollDevPage /></Lazy> },
     { path: 'dev/tree-view', element: <Lazy><TreeViewDevPage /></Lazy> },
+    { path: 'dev/color-picker', element: <Lazy><ColorPickerDevPage /></Lazy> },
   ];
 }
 
