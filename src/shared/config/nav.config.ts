@@ -54,7 +54,8 @@ export const NAV_GROUPS: NavGroup[] = [
     key: 'data-feedback',
     label: 'HIỂN THỊ DỮ LIỆU & FEEDBACK',
     items: [
-      { key: 'dev-dialog', to: '/dev/dialog', label: 'Dialog & Modal' },
+      { key: 'dev-dialog', to: '/dev/dialog', label: 'Dialog (Raw)' },
+      { key: 'dev-modal-dialog', to: '/dev/modal-dialog', label: 'Modal Dialog' },
       { key: 'dev-drawer', to: '/dev/drawer', label: 'Drawer & Sheet' },
       { key: 'dev-card', to: '/dev/card', label: 'Card' },
       { key: 'dev-notification', to: '/dev/notification', label: 'Notification / Toast' },

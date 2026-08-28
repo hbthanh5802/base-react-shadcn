@@ -12,7 +12,7 @@ import {
 
 const items = ['Mục 1', 'Mục 2', 'Mục 3'];
 
-const tooltipUsageCode = `import {
+const tooltipPositionsCode = `import {
   Tooltip,
   TooltipTrigger,
   TooltipContent,
@@ -20,27 +20,39 @@ const tooltipUsageCode = `import {
 } from '@/shared/components/ui/tooltip';
 import { Button } from '@/shared/components/ui/button';
 
-// Bọc TooltipProvider ở cấp cao hơn hoặc quanh component
-<TooltipProvider delayDuration={100}>
-  {/* Tooltip chữ đơn giản */}
+// Hỗ trợ 12 hướng & căn lề:
+// side: 'top' | 'right' | 'bottom' | 'left'
+// align: 'start' | 'center' | 'end'
+
+<TooltipProvider delayDuration={50}>
   <Tooltip>
     <TooltipTrigger asChild>
-      <Button variant="outline">Rê chuột vào đây</Button>
+      <Button variant="outline">Hover xem tooltip</Button>
     </TooltipTrigger>
     <TooltipContent side="top" align="center">
-      Thông tin giải thích chức năng
+      <span>Tooltip vị trí: <strong>top-center</strong></span>
     </TooltipContent>
   </Tooltip>
+</TooltipProvider>`;
 
-  {/* Tooltip danh sách chi tiết */}
+const tooltipBubbleCode = `import {
+  Tooltip,
+  TooltipTrigger,
+  TooltipContent,
+  TooltipBubbleContent,
+  TooltipProvider,
+} from '@/shared/components/ui/tooltip';
+import { Button } from '@/shared/components/ui/button';
+
+<TooltipProvider delayDuration={50}>
   <Tooltip>
     <TooltipTrigger asChild>
-      <Button variant="outline">Xem danh sách</Button>
+      <Button variant="outline">Hover xem chi tiết</Button>
     </TooltipTrigger>
-    <TooltipContent side="bottom" align="start">
+    <TooltipContent side="top" align="center">
       <TooltipBubbleContent
-        label="Danh sách đính kèm"
-        items={['Tài liệu 1', 'Tài liệu 2']}
+        label="Danh sách tài liệu"
+        items={['Hợp đồng dịch vụ', 'Bản scan CMND', 'Hồ sơ năng lực']}
       />
     </TooltipContent>
   </Tooltip>
@@ -68,7 +80,7 @@ export const TooltipDevPage = () => {
       <CodePreview
         title="1. Tương tác rê chuột theo các vị trí (12 Hướng & Căn lề)"
         description="Rê chuột vào từng ô bên dưới để kiểm tra vị trí xuất hiện của Tooltip."
-        code={tooltipUsageCode}
+        code={tooltipPositionsCode}
       >
         <TooltipProvider delayDuration={50}>
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
@@ -108,13 +120,13 @@ export const TooltipDevPage = () => {
       </CodePreview>
 
       {/* ── 2. Bubble Tooltip ── */}
-      <section className="space-y-4 rounded-xl border border-border bg-card p-6 shadow-xs">
-        <div className="border-b border-border pb-3">
-          <h2 className="text-title-1 font-semibold text-foreground">2. Tooltip danh sách chi tiết (Rich Bubble Tooltip)</h2>
-          <p className="text-body-2-rg text-muted-foreground mt-0.5">Hiển thị nội dung phân cấp kèm danh sách gạch đầu dòng.</p>
-        </div>
+      <CodePreview
+        title="2. Tooltip danh sách chi tiết (Rich Bubble Tooltip)"
+        description="Hiển thị nội dung phân cấp kèm danh sách gạch đầu dòng tiện lợi."
+        code={tooltipBubbleCode}
+      >
         <TooltipProvider delayDuration={50}>
-          <div className="flex flex-wrap items-center gap-4 pt-2">
+          <div className="flex flex-wrap items-center gap-4">
             <Tooltip>
               <TooltipTrigger asChild>
                 <button
@@ -161,7 +173,7 @@ export const TooltipDevPage = () => {
             </Tooltip>
           </div>
         </TooltipProvider>
-      </section>
+      </CodePreview>
     </div>
   );
 };

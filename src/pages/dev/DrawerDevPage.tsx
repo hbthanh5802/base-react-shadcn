@@ -3,6 +3,7 @@ import { useState } from 'react';
 
 import { DevBreadcrumb } from '@/pages/dev/_DevBreadcrumb';
 import { Button } from '@/shared/components/ui/button';
+import { CodePreview } from '@/shared/components/ui/code-block';
 import {
   Drawer,
   DrawerBody,
@@ -14,10 +15,92 @@ import {
   DrawerTitle,
   DrawerTrigger,
 } from '@/shared/components/ui/drawer';
-import { InputGlobal } from '@/shared/components/ui/input-global';
 import { Label } from '@/shared/components/ui/label';
 import { Switch } from '@/shared/components/ui/switch';
 import { TextField } from '@/shared/components/ui/text-field';
+
+const drawerDirectionCode = `import { useState } from 'react';
+import {
+  Drawer,
+  DrawerTrigger,
+  DrawerContent,
+  DrawerHeader,
+  DrawerTitle,
+  DrawerDescription,
+  DrawerBody,
+  DrawerFooter,
+  DrawerClose,
+} from '@/shared/components/ui/drawer';
+import { Button } from '@/shared/components/ui/button';
+
+export const DrawerExample = () => {
+  const [open, setOpen] = useState(false);
+
+  return (
+    <Drawer open={open} onOpenChange={setOpen}>
+      <DrawerTrigger asChild>
+        <Button>Mở Drawer (Right)</Button>
+      </DrawerTrigger>
+      <DrawerContent side="right" size="md">
+        <DrawerHeader>
+          <DrawerTitle>Thông tin chi tiết</DrawerTitle>
+          <DrawerDescription>Chỉnh sửa thông tin người dùng và quyền hạn.</DrawerDescription>
+        </DrawerHeader>
+        <DrawerBody className="space-y-4">
+          {/* Nội dung form hoặc chi tiết */}
+        </DrawerBody>
+        <DrawerFooter>
+          <DrawerClose asChild>
+            <Button variant="outline">Hủy</Button>
+          </DrawerClose>
+          <Button onClick={() => setOpen(false)}>Lưu thay đổi</Button>
+        </DrawerFooter>
+      </DrawerContent>
+    </Drawer>
+  );
+};`;
+
+const drawerSizesCode = `<Drawer open={isOpen} onOpenChange={setIsOpen}>
+  {/* Hỗ trợ 5 kích thước: sm (320px), md (480px), lg (640px), xl (768px), full (100vw) */}
+  <DrawerContent side="right" size="lg">
+    <DrawerHeader>
+      <DrawerTitle>Drawer Size Large</DrawerTitle>
+    </DrawerHeader>
+    <DrawerBody>
+      <p>Nội dung tự động co dãn theo kích thước của Drawer.</p>
+    </DrawerBody>
+    <DrawerFooter>
+      <Button onClick={() => setIsOpen(false)}>Đóng</Button>
+    </DrawerFooter>
+  </DrawerContent>
+</Drawer>`;
+
+const drawerFilterCode = `<Drawer>
+  <DrawerTrigger asChild>
+    <Button variant="outline" iconLayout="left">
+      <Filter className="h-4 w-4" />
+      Mở bộ lọc nâng cao
+    </Button>
+  </DrawerTrigger>
+  <DrawerContent side="right" size="md">
+    <DrawerHeader>
+      <DrawerTitle>Bộ lọc tìm kiếm</DrawerTitle>
+      <DrawerDescription>Tùy chỉnh tiêu chí để thu hẹp kết quả dữ liệu.</DrawerDescription>
+    </DrawerHeader>
+    <DrawerBody className="space-y-4">
+      <TextField label="Mã giao dịch / Từ khóa" placeholder="Nhập từ khóa..." />
+      <TextField label="Người thực hiện" placeholder="Nhập tên nhân viên..." />
+    </DrawerBody>
+    <DrawerFooter>
+      <DrawerClose asChild>
+        <Button variant="outline">Đặt lại</Button>
+      </DrawerClose>
+      <DrawerClose asChild>
+        <Button>Áp dụng bộ lọc</Button>
+      </DrawerClose>
+    </DrawerFooter>
+  </DrawerContent>
+</Drawer>`;
 
 export const DrawerDevPage = () => {
   const [openRight, setOpenRight] = useState(false);
@@ -38,15 +121,12 @@ export const DrawerDevPage = () => {
       </div>
 
       {/* ── 1. Directions ── */}
-      <section className="space-y-4 rounded-xl border border-border bg-card p-6 shadow-xs">
-        <div className="border-b border-border pb-3">
-          <h2 className="text-title-1 font-semibold text-foreground">1. Hướng trượt (4 Directions)</h2>
-          <p className="text-body-2-rg text-muted-foreground mt-0.5">
-            Trượt từ Phải (Mặc định), Trái (Menu/Sidebar), Dưới (Bottom Sheet), Trên (Search/Banner).
-          </p>
-        </div>
-
-        <div className="flex flex-wrap gap-3 pt-2">
+      <CodePreview
+        title="1. Hướng trượt (4 Directions)"
+        description="Trượt từ Phải (Mặc định), Trái (Menu/Sidebar), Dưới (Bottom Sheet), Trên (Search/Banner)."
+        code={drawerDirectionCode}
+      >
+        <div className="flex flex-wrap gap-3">
           {/* Right Drawer */}
           <Drawer open={openRight} onOpenChange={setOpenRight}>
             <DrawerTrigger asChild>
@@ -106,7 +186,9 @@ export const DrawerDevPage = () => {
               </DrawerBody>
               <DrawerFooter>
                 <DrawerClose asChild>
-                  <Button variant="outline" className="w-full">Đóng</Button>
+                  <Button variant="outline" className="w-full">
+                    Đóng
+                  </Button>
                 </DrawerClose>
               </DrawerFooter>
             </DrawerContent>
@@ -122,21 +204,17 @@ export const DrawerDevPage = () => {
             </DrawerTrigger>
             <DrawerContent side="bottom" size="md">
               <DrawerHeader>
-                <DrawerTitle>Hành động nhanh</DrawerTitle>
-                <DrawerDescription>Chọn thao tác bạn muốn thực hiện</DrawerDescription>
+                <DrawerTitle>Tùy chọn bổ sung</DrawerTitle>
+                <DrawerDescription>Thực hiện các thao tác hàng loạt hoặc xuất dữ liệu.</DrawerDescription>
               </DrawerHeader>
-              <DrawerBody className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-                <div className="rounded-xl border border-border p-4 text-center hover:bg-muted/50 cursor-pointer transition-colors">
-                  <p className="font-semibold text-foreground">Xuất dữ liệu</p>
-                  <p className="text-body-3-rg text-muted-foreground mt-1">Xuất file Excel báo cáo</p>
-                </div>
-                <div className="rounded-xl border border-border p-4 text-center hover:bg-muted/50 cursor-pointer transition-colors">
-                  <p className="font-semibold text-foreground">Gửi thông báo</p>
-                  <p className="text-body-3-rg text-muted-foreground mt-1">Gửi email hàng loạt</p>
-                </div>
-                <div className="rounded-xl border border-border p-4 text-center hover:bg-muted/50 cursor-pointer transition-colors">
-                  <p className="font-semibold text-foreground">Phân quyền</p>
-                  <p className="text-body-3-rg text-muted-foreground mt-1">Cập nhật nhóm quyền</p>
+              <DrawerBody className="space-y-3">
+                <p className="text-body-2-rg text-muted-foreground">
+                  Bottom sheet thường được áp dụng tốt trên thiết bị di động hoặc các hành động nhanh.
+                </p>
+                <div className="flex gap-2">
+                  <Button variant="outline">Xuất file Excel</Button>
+                  <Button variant="outline">Xuất file PDF</Button>
+                  <Button variant="destructive">Xóa các mục đã chọn</Button>
                 </div>
               </DrawerBody>
               <DrawerFooter>
@@ -158,32 +236,29 @@ export const DrawerDevPage = () => {
             <DrawerContent side="top" size="sm">
               <DrawerHeader>
                 <DrawerTitle>Tìm kiếm nhanh</DrawerTitle>
-                <DrawerDescription>Nhập từ khóa để tìm kiếm trên toàn hệ thống</DrawerDescription>
+                <DrawerDescription>Nhập từ khóa để tra cứu hồ sơ toàn hệ thống.</DrawerDescription>
               </DrawerHeader>
               <DrawerBody>
-                <InputGlobal placeholder="Tìm kiếm tài liệu, hợp đồng, người dùng..." />
+                <TextField placeholder="Tìm kiếm nhanh nhân viên, phòng ban, dự án..." autoFocus />
               </DrawerBody>
               <DrawerFooter>
                 <DrawerClose asChild>
-                  <Button variant="outline">Đóng</Button>
+                  <Button variant="outline">Hủy</Button>
                 </DrawerClose>
                 <Button>Tìm kiếm</Button>
               </DrawerFooter>
             </DrawerContent>
           </Drawer>
         </div>
-      </section>
+      </CodePreview>
 
       {/* ── 2. Size Variants ── */}
-      <section className="space-y-4 rounded-xl border border-border bg-card p-6 shadow-xs">
-        <div className="border-b border-border pb-3">
-          <h2 className="text-title-1 font-semibold text-foreground">2. Các kích thước (Size Variants)</h2>
-          <p className="text-body-2-rg text-muted-foreground mt-0.5">
-            Lựa chọn độ rộng phù hợp: Small (320px), Medium (480px), Large (640px), Extra Large (768px), Fullscreen (100vw).
-          </p>
-        </div>
-
-        <div className="flex flex-wrap items-center gap-3 pt-2">
+      <CodePreview
+        title="2. Các kích thước (Size Variants)"
+        description="Lựa chọn độ rộng phù hợp: Small (320px), Medium (480px), Large (640px), Extra Large (768px), Fullscreen (100vw)."
+        code={drawerSizesCode}
+      >
+        <div className="flex flex-wrap items-center gap-3">
           {(['sm', 'md', 'lg', 'xl', 'full'] as const).map((s) => (
             <Button
               key={s}
@@ -227,18 +302,15 @@ export const DrawerDevPage = () => {
             </DrawerContent>
           </Drawer>
         </div>
-      </section>
+      </CodePreview>
 
       {/* ── 3. Filter Drawer Demo ── */}
-      <section className="space-y-4 rounded-xl border border-border bg-card p-6 shadow-xs">
-        <div className="border-b border-border pb-3">
-          <h2 className="text-title-1 font-semibold text-foreground">3. Ứng dụng thực tế: Bộ lọc nâng cao (Filter Drawer)</h2>
-          <p className="text-body-2-rg text-muted-foreground mt-0.5">
-            Mẫu ứng dụng bộ lọc trượt từ cạnh phải phổ biến trong các trang quản lý bảng dữ liệu.
-          </p>
-        </div>
-
-        <div className="pt-2">
+      <CodePreview
+        title="3. Ứng dụng thực tế: Bộ lọc nâng cao (Filter Drawer)"
+        description="Mẫu ứng dụng bộ lọc trượt từ cạnh phải phổ biến trong các trang quản lý bảng dữ liệu."
+        code={drawerFilterCode}
+      >
+        <div>
           <Drawer>
             <DrawerTrigger asChild>
               <Button variant="outline" iconLayout="left">
@@ -283,7 +355,7 @@ export const DrawerDevPage = () => {
             </DrawerContent>
           </Drawer>
         </div>
-      </section>
+      </CodePreview>
     </div>
   );
 };

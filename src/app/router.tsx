@@ -105,6 +105,10 @@ if (SHOW_DEV_ROUTES) {
     () => import('@/pages/dev/InfiniteScrollDevPage'),
     'InfiniteScrollDevPage',
   );
+  const ModalDialogDevPage = lazyNamed(
+    () => import('@/pages/dev/ModalDialogDevPage'),
+    'ModalDialogDevPage',
+  );
   devRoutes = [
     { path: 'dev', element: <Lazy><DevComponentsPage /></Lazy> },
     { path: 'dev/avatar', element: <Lazy><AvatarDevPage /></Lazy> },
@@ -118,6 +122,7 @@ if (SHOW_DEV_ROUTES) {
     { path: 'dev/code-block', element: <Lazy><CodeBlockDevPage /></Lazy> },
     { path: 'dev/date-picker', element: <Lazy><DatePickerDevPage /></Lazy> },
     { path: 'dev/dialog', element: <Lazy><DialogDevPage /></Lazy> },
+    { path: 'dev/modal-dialog', element: <Lazy><ModalDialogDevPage /></Lazy> },
     { path: 'dev/drawer', element: <Lazy><DrawerDevPage /></Lazy> },
     { path: 'dev/document-viewer', element: <Lazy><DocumentViewerDevPage /></Lazy> },
     { path: 'dev/dropdown-menu', element: <Lazy><DropdownMenuDevPage /></Lazy> },

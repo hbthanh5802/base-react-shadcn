@@ -199,10 +199,19 @@ export const DevComponentsPage = () => {
 
           <Link to="/dev/dialog" className={cardClass}>
             <h3 className="text-title-2 font-semibold text-foreground group-hover:text-primary transition-colors">
-              Dialog & Modal
+              Dialog (Raw Primitives)
             </h3>
             <p className="text-body-2-rg text-muted-foreground mt-1">
-              Hộp thoại xác nhận, popup biểu mẫu và cảnh báo.
+              Bộ thành phần nguyên bản Radix Dialog cho layout tự do.
+            </p>
+          </Link>
+
+          <Link to="/dev/modal-dialog" className={cardClass}>
+            <h3 className="text-title-2 font-semibold text-foreground group-hover:text-primary transition-colors">
+              Modal Dialog (UI/UX Pro Max)
+            </h3>
+            <p className="text-body-2-rg text-muted-foreground mt-1">
+              Hộp thoại cấp cao tích hợp sẵn tiêu đề, nút hành động, async loader và kích thước chuẩn.
             </p>
           </Link>
 
