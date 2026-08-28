@@ -1,6 +1,6 @@
 import { QueryClientProvider } from '@tanstack/react-query';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
-import { CloseCircle, TickCircle } from 'iconsax-react';
+import { CloseCircle, Danger, InfoCircle, TickCircle } from 'iconsax-react';
 import { type ReactNode, Suspense } from 'react';
 import { I18nextProvider } from 'react-i18next';
 import { Toaster } from 'sonner';
@@ -26,20 +26,10 @@ export const Providers = ({ children }: ProvidersProps) => (
             position="top-right"
             closeButton={false}
             icons={{
-              error: <CloseCircle className="size-6 shrink-0 text-[#DA251C]" variant="Bold" />,
-              success: <TickCircle className="size-6 shrink-0 text-[#3EBB3E]" variant="Bold" />,
-            }}
-            toastOptions={{
-              classNames: {
-                toast:
-                  '!min-h-12 !h-auto !items-start !gap-2.5 !rounded-lg !border !border-border !bg-popover !p-3 !shadow-lg !max-w-md',
-                content: '!gap-1 !min-w-0 !flex-1 !break-words',
-                icon: '!size-6 !shrink-0 !mt-0.5 !bg-transparent',
-                title: '!text-body-2-rg !text-popover-foreground !break-words !whitespace-normal',
-                description: '!text-body-2-rg !text-muted-foreground !break-words !whitespace-normal',
-                error: '!bg-popover !text-popover-foreground',
-                success: '!bg-popover !text-popover-foreground',
-              },
+              info: <InfoCircle size={22} variant="Bold" className="text-blue-600 dark:text-blue-400 shrink-0" />,
+              success: <TickCircle size={22} variant="Bold" className="text-emerald-600 dark:text-emerald-400 shrink-0" />,
+              warning: <Danger size={22} variant="Bold" className="text-amber-600 dark:text-amber-400 shrink-0" />,
+              error: <CloseCircle size={22} variant="Bold" className="text-red-600 dark:text-red-400 shrink-0" />,
             }}
           />
         </ThemeProvider>
@@ -48,3 +38,5 @@ export const Providers = ({ children }: ProvidersProps) => (
     </I18nextProvider>
   </Suspense>
 );
+
+export default Providers;
